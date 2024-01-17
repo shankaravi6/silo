@@ -1,22 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
 const initialState = {
-    mode: "light"
+  mode: "light",
 };
 
-
 export const modeSlice = createSlice({
-    name: "theme",
-    initialState,
-    reducers: {
-      setMode: (state) => {
-        state.mode = state.mode === "light" ? "dark" : "light";
-      },
+  name: "theme",
+  initialState,
+  reducers: {
+    setMode: (state) => {
+      state.mode = state.mode === "light" ? "dark" : "light";
     },
-  });
+  },
+});
 
-
-  export const { setMode } =
-  modeSlice.actions;
+export const { setMode } = modeSlice.actions;
 export default modeSlice.reducer;
