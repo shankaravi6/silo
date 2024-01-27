@@ -7,7 +7,6 @@ import {
   SoDiv,
   SoFlex,
   SoImg,
-  SoInput,
   SoShadowBox,
   SoSpan,
   SoTitle,
@@ -18,6 +17,7 @@ import { setMode, setType } from "../State";
 import { useTheme } from "@mui/material";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LoginForm from "../Forms/LoginForm";
 
 const JoinPage = () => {
   const { palette } = useTheme();
@@ -43,13 +43,13 @@ const JoinPage = () => {
           >
             {type == "login" ? (
               <SoImg style={{animation: "fadeIn 2s ease-in"}}
-                src="https://images.unsplash.com/photo-1497334251732-c0eb68e26827?q=80&w=1918&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="silo_img"
+                src="https://th.bing.com/th/id/OIG2.A2pzrcdUuqsUa66NALCa?pid=ImgGn"
+                alt="login_img"
               />
             ) : (
-              <SoImg 
-                src="https://images.unsplash.com/photo-1512951670161-b5c6c632b00e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="silo_img"
+              <SoImg
+                src="https://th.bing.com/th/id/OIG4.HbcvRT0w16kK632OnVRB?pid=ImgGn"
+                alt="register_img"
               />
             )}
           </SoBox>
@@ -70,30 +70,7 @@ const JoinPage = () => {
             >
               {mode === "light" ? <DarkModeIcon /> : <LightModeIcon />}
             </SoDiv>
-            <SoCover display="flex" jc="center" dir="column" gap="25px" width="100%" p="50px">
-              <SoTitle>{type == "login" ? "Login" : "Register"}</SoTitle>
-              {type== "login" ? <></> : 
-              <SoFlex gap="25px">
-                <SoInput placeholder="First Name" width="100%" />
-                <SoInput placeholder="Last Name" width="100%" />
-              </SoFlex>}
-              <SoInput placeholder="Email" />
-              <SoInput placeholder="Password" type="password" />
-              {type== "login" ? <></> : 
-              <SoInput placeholder="Confirm Password" type="password" />
-              }
-              <SoButton type="button">{type == "login" ? "Sign In" : "Sign Up"}</SoButton>
-              <SoTypography style={{ textAlign: "center" }}>
-                {type == "login" ? "Don't have an account " : "Already have an account "}
-                <SoSpan
-                  style={{ textDecoration: "underline", cursor: "pointer" }}
-                  className="set-login"
-                  onClick={() => dispatch(setType())}
-                >
-                  {type == "login" ? "Register" : "Login"}
-                </SoSpan>
-              </SoTypography>
-            </SoCover>
+            <LoginForm type={type}/>
           </SoBox>
         </SoFlex>
       </SoShadowBox>

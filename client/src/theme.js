@@ -50,6 +50,9 @@ export const themeSettings = (mode) => {
             shadow: {
               main: "rgba(255, 255, 255, 0.35)",
               sub: "rgba(255, 255, 255, 0.25)"
+            },
+            error:{
+              main:"#FF5733"
             }
           }
         : {
@@ -69,6 +72,9 @@ export const themeSettings = (mode) => {
             shadow: {
               main: "rgba(0, 0, 0, 0.35)",
               sub: "rgba(0, 0, 0, 0.25)"
+            },
+            error:{
+              main:"#FF5733"
             }
           }),
     },

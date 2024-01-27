@@ -21,7 +21,7 @@ const SiloComponent = (StyledComponent) => {
 
 export const SoCenterContainer = styled.div`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   padding: ${(props) => props.p};
@@ -77,7 +77,7 @@ export const SoImg = styled.img`
   width: 100%;
 `;
 
-export const SoInput = SiloComponent(styled.input`
+export const SoInputSyle = SiloComponent(styled.input`
   padding: 10px 20px;
   width: ${(props) => props.width ? props.width : 'auto'};
   border-radius: 5px;
@@ -118,6 +118,19 @@ export const SoCover = styled.div`
   margin: ${(props) => props.m};
 `;
 
+export const SoForm = styled.form`
+  display: ${(props) => props.display};
+  flex-direction: ${(props) => props.dir};
+  justify-content: ${(props) => props.jc};
+  align-items: ${(props) => props.ai};
+  width: ${(props) => (props.width ? props.width : "auto")};
+  height: ${(props) => (props.height ? props.height : "auto")};
+  background: ${(props) => props.bg};
+  gap: ${(props) => props.gap};
+  padding: ${(props) => props.p};
+  margin: ${(props) => props.m};
+`;
+
 export const SoTitle = SiloComponent(styled.h1`
   font-family: Silo;
   font-size: 2.5rem;
@@ -132,7 +145,7 @@ export const SoButton = SiloComponent(styled.button`
   letter-spacing: 5px;
   color: ${(props) => props.palette.primary.option};
   background-color: ${(props) => props.palette.background.secondary};
-  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  box-shadow: ${(props) => props.palette.shadow.main} 0px 2px 4px;
   transition: all 0.3s ease;
   font-family: "Quicksand", sans-serif;
   font-weight: 500;

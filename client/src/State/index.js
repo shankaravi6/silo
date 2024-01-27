@@ -2,7 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   mode: "light",
-  type: "register"
+  type: "register",
+  error:"",
+  loginData : null,
+  registerData : null
 };
 
 export const modeSlice = createSlice({
@@ -14,9 +17,18 @@ export const modeSlice = createSlice({
     },
     setType: (state, action) => {
       state.type = state.type === "register" ? "login" : "register";
+    },
+    setError: (state, action) => {
+      state.error = action.payload;
+    },
+    setLoginData: (state, action) => {
+      state.loginData = action.payload
+    },
+    setRegisterData: (state, action) => {
+      state.registerData = action.payload
     }
   },
 });
 
-export const { setMode, setType } = modeSlice.actions;
+export const { setMode, setType, setLoginData,  setRegisterData} = modeSlice.actions;
 export default modeSlice.reducer;
