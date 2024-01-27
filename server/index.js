@@ -33,11 +33,13 @@ const app = fastify();
 app.register(fastifyCors);
 app.register(userRoute, { prefix: '/user' });
 
-const PORT = process.env.PORT;
+const port = process.env.PORT || 6000;
+const host = ("RENDER" in process.env) ? `0.0.0.0` : `localhost`;
+
 
 mongoose
   .connect(process.env.MONGOURL)
-  .then(() => app.listen(PORT , () => console.log(`Fastify running at ${PORT}`)))
+  .then(() => app.listen({ host:host, port: port }, () => console.log("Fastify running at", port)))
   .catch((err) => console.error(err));
 
 
