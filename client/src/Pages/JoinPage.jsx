@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo } from "react";
 import {
   SoBox,
-  SoButton,
   SoCenterContainer,
   SoCover,
   SoDiv,

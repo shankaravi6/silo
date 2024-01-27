@@ -45,7 +45,8 @@ export const themeSettings = (mode) => {
             },
             background: {
               default: colorTokens.drops[1500],
-              secondary: colorTokens.drops[10]
+              secondary: colorTokens.drops[5],
+              third: colorTokens.drops[10],
             },
             shadow: {
               main: "rgba(255, 255, 255, 0.35)",
@@ -67,7 +68,8 @@ export const themeSettings = (mode) => {
             },
             background: {
               default: colorTokens.drops[10],
-              secondary: colorTokens.drops[1500]
+              secondary: colorTokens.drops[1000],
+              third: colorTokens.drops[1500],
             },
             shadow: {
               main: "rgba(0, 0, 0, 0.35)",

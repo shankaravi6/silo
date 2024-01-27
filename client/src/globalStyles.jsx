@@ -77,34 +77,6 @@ export const SoImg = styled.img`
   width: 100%;
 `;
 
-export const SoInputSyle = SiloComponent(styled.input`
-  padding: 10px 20px;
-  width: ${(props) => props.width ? props.width : 'auto'};
-  border-radius: 5px;
-  background-color: ${(props) => props.palette.background.default};
-  color: ${(props) => props.palette.primary.main};
-  border: 2.5px solid ${(props) => props.palette.primary.third};
-  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
-  transition: all 0.3s ease;
-  font-family: "Quicksand", sans-serif;
-
-  &:hover {
-    border: 2.5px solid ${(props) => props.palette.primary.fourth};
-    transition: all 0.3s ease;
-  }
-
-  &:active,
-  &:focus {
-    border: 2.5px solid ${(props) => props.palette.primary.third};
-    transition: all 0.3s ease;
-    box-shadow: ${(props) => props.palette.shadow.main} 0px 5px 15px;
-  }
-
-  &:focus-visible {
-    outline: unset;
-  }
-`);
-
 export const SoCover = styled.div`
   display: ${(props) => props.display};
   flex-direction: ${(props) => props.dir};
@@ -139,20 +111,6 @@ export const SoTitle = SiloComponent(styled.h1`
   color: ${(props) => props.palette.primary.main};
 `);
 
-export const SoButton = SiloComponent(styled.button`
-  font-size:100%;
-  text-align: center;
-  letter-spacing: 5px;
-  color: ${(props) => props.palette.primary.option};
-  background-color: ${(props) => props.palette.background.secondary};
-  box-shadow: ${(props) => props.palette.shadow.main} 0px 2px 4px;
-  transition: all 0.3s ease;
-  font-family: "Quicksand", sans-serif;
-  font-weight: 500;
-  padding: 10px 20px;
-  width: auto;
-  border-radius: 5px;
-`);
 
 export const SoDiv = styled.div`
   display: block;

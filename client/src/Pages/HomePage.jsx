@@ -4,6 +4,7 @@ import { setMode } from "../State";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import SoButton from "../Components/SoButton";
 
 export const Heading = styled.h1`
   font-family: Silo;
@@ -36,9 +37,9 @@ const HomePage = () => {
       >
         The Truth Will Surface
       </p>
-      <Button variant="contained" onClick={()=> navigate('/join')}>
+      <SoButton onClick={()=> navigate('/join')}>
         Join
-      </Button>
+      </SoButton>
     </div>
   );
 };
