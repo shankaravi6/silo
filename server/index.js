@@ -37,7 +37,7 @@ const PORT = process.env.PORT;
 
 mongoose
   .connect(process.env.MONGOURL)
-  .then(() => app.listen({ port: PORT }, () => console.log("Fastify running at", PORT)))
+  .then(() => app.listen(PORT , () => console.log(`Fastify running at ${PORT}`)))
   .catch((err) => console.error(err));
 
 
