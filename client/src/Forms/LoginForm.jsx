@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   SoCover,
   SoFlex,
@@ -8,7 +8,7 @@ import {
   SoTypography,
 } from "../globalStyles";
 import { useDispatch, useSelector } from "react-redux";
-import { setLoginData, setRegisterData, setType } from "../State";
+import { setAlert, setLoginData, setRegisterData, setType } from "../State";
 import { Formik } from "formik";
 import * as yup from "yup";
 import SoInput from "../Components/SoInput";
@@ -30,11 +30,19 @@ const LoginForm = ({ type }) => {
         values
       );
       console.log("registerResponse", registerResponse);
+      if(registerResponse.message == "success")
+      dispatch(setAlert({open:true, msg:registerResponse.desc, type:"success"}))
+      else
+      dispatch(setAlert({open:true, msg:registerResponse.desc, type:"error"}))
     }
     if (type === "login") {
       dispatch(setLoginData(values));
       const loginResponse = await makeApiCall("/user/login", "POST", values);
       console.log("loginResponse", loginResponse);
+      if(loginResponse.message == "success")
+      dispatch(setAlert({open:true, msg:loginResponse.desc, type:"success"}))
+      else
+      dispatch(setAlert({open:true, msg:loginResponse.desc, type:"error"}))
     }
   };
 
@@ -193,6 +201,7 @@ const LoginForm = ({ type }) => {
           </>
         )}
       </Formik>
+      
     </SoCover>
   );
 };

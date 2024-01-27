@@ -5,7 +5,8 @@ const initialState = {
   type: "register",
   error:"",
   loginData : null,
-  registerData : null
+  registerData : null,
+  alert : {}
 };
 
 export const modeSlice = createSlice({
@@ -26,9 +27,12 @@ export const modeSlice = createSlice({
     },
     setRegisterData: (state, action) => {
       state.registerData = action.payload
+    },
+    setAlert: (state,action) => {
+      state.alert = action.payload
     }
   },
 });
 
-export const { setMode, setType, setLoginData,  setRegisterData} = modeSlice.actions;
+export const { setMode, setType, setLoginData,  setRegisterData, setAlert} = modeSlice.actions;
 export default modeSlice.reducer;

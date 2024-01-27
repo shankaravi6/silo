@@ -1,0 +1,33 @@
+import { Alert } from '@mui/material';
+import Snackbar from '@mui/material/Snackbar';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setAlert } from '../State';
+
+const SoAlert = () => {
+  const alert = useSelector((state) => state.silo.alert)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    alert
+  }, [alert.open])
+
+  const handleClose = () => {
+    dispatch(setAlert({}))
+  };
+
+  return (
+    <Snackbar
+      anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+      open={alert.open}
+      autoHideDuration={3000}
+      onClose={handleClose}
+    >
+      <Alert onClose={handleClose} severity={alert.type === 'success' ? 'success' : alert.type === 'error' ? 'error' : ''} variant='filled'>
+        {alert.msg}
+      </Alert>
+    </Snackbar>
+  );
+};
+
+export default SoAlert;

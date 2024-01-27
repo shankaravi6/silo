@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
   SoBox,
   SoCenterContainer,
@@ -17,12 +17,14 @@ import { useTheme } from "@mui/material";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LoginForm from "../Forms/LoginForm";
+import SoAlert from "../Components/SoAlert";
 
 const JoinPage = () => {
   const { palette } = useTheme();
   const dispatch = useDispatch();
   const mode = useSelector((state) => state.silo.mode);
   const type = useSelector((state) => state.silo.type);
+
 
   return (
     <SoCenterContainer jc="center">
@@ -69,10 +71,11 @@ const JoinPage = () => {
             >
               {mode === "light" ? <DarkModeIcon /> : <LightModeIcon />}
             </SoDiv>
-            <LoginForm type={type}/>
+            <LoginForm type={type} />
           </SoBox>
         </SoFlex>
       </SoShadowBox>
+      <SoAlert />
     </SoCenterContainer>
   );
 };
