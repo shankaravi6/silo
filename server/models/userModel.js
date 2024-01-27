@@ -1,19 +1,32 @@
-// const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-// const userSchema = mongoose.Schema({
-//     email: String
-// })
-
-// const userModel = mongoose.model('Entry', userSchema)
-
-// module.exports = userModel;
-
-import mongoose from 'mongoose';
 
 const userSchema = mongoose.Schema({
-    email: String
-});
+    firstName: {
+        type: String,
+        required: true,
+        min: 5,
+        max: 50
+    },
+    lastName: {
+        type: String,
+        required: true,
+        min: 5,
+        max: 10
+    },
+    email: {
+        type: String,
+        required: true,
+        max:50,
+        unique: true
+    },
+    password: {
+        type: String,
+        required: true,
+        min: 5
+    }
+})
 
-const userModel = mongoose.model('Entry', userSchema);
 
-export default userModel;
+const User = mongoose.model('User', userSchema);
+export default User

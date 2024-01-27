@@ -7,9 +7,10 @@ import { createTheme } from "@mui/material/styles";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { themeSettings } from "./theme";
+import JoinPage from "./Pages/JoinPage";
 
 const App = () => {
-  const mode = useSelector((state) => state.theme.mode);
+  const mode = useSelector((state) => state.silo.mode);
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
 
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <CssBaseline />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/join" element={<JoinPage />} />
         </Routes>
       </ThemeProvider>
     </BrowserRouter>

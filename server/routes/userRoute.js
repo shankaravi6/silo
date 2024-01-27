@@ -1,20 +1,19 @@
-// const express = require("express")
-// const userController = require("../controllers/userController.js")
-
+// import express from 'express';
+// import {getUsers} from '../controllers/userController.js';
 
 // const router = express.Router();
 
+// router.get('/getUser', getUsers);
 
-// router.get('/getUser', userController);
-
-// module.exports = router;
+// export default router;
 
 
-import express from 'express';
-import userController from '../controllers/userController.js';
+import { getEntry, userLogin, userRegister } from '../controllers/userController.js';
 
-const router = express.Router();
+const userRoute = async (app, opts) => {
+  app.get('/getEntry', getEntry);
+  app.post('/register', userRegister)
+  app.post('/login', userLogin)
+};
 
-router.get('/getUser', userController);
-
-export default router;
+export default userRoute;

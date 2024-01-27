@@ -7,7 +7,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import themeReducer from "./State";
 
 const store = configureStore({
-  reducer: { theme: themeReducer },
+  reducer: { silo: themeReducer },
 });
 
 ReactDOM.createRoot(document.getElementById("root")).render(

@@ -1,30 +1,52 @@
-// const mongoose = require("mongoose");
-// const userModel = require("../models/userModel.js")
-
-
-// const getUsers = async (req, res) => {
-//     try {
-//         const postMessage = await userModel.find();
-//         res.status(200).json(postMessage);
-//     } catch (error) {
-//         res.status(404).json({ message: error.message });
-//     }
-// };
-
-
-// module.exports = getUsers;
-
-
 import mongoose from 'mongoose';
-import userModel from '../models/userModel.js';
+import Entry from '../models/entryModel.js';
+import User from '../models/userModel.js';
+import bcrypt from 'bcrypt';
+import jwt from "jsonwebtoken";
 
-const getUsers = async (req, res) => {
+
+export const getEntry = async (request, replay) => {
     try {
-        const postMessage = await userModel.find();
-        res.status(200).json(postMessage);
+        const userEntry = await Entry.find();
+        replay.status(200).send(userEntry);
     } catch (error) {
-        res.status(404).json({ message: error.message });
+        replay.status(500).send({ message: error.message });
     }
 };
 
-export default getUsers;
+export const userRegister = async (request, replay) => {
+    const {firstName, lastName, email, password} = request.body;
+    const salt = await bcrypt.genSalt();
+    const encryPassword = await bcrypt.hash(password, salt);
+    try {
+        const setRegisterData = new User({
+            firstName, 
+            lastName,
+            email,
+            password: encryPassword
+        })
+        const registerData = await setRegisterData.save();
+        replay.status(201).send({message:"success", data:registerData})
+    } catch (error) {
+        replay.status(500).send({message:error.message})
+    }
+}
+
+
+export const userLogin = async (request, reply) => {
+    const {email, password} = request.body;
+    try {
+        const user = await User.findOne({email: email})
+        if(!user) return reply.status(400).send({message:"User not found"})
+
+        const passMatch = await bcrypt.compare(password, user.password)
+        if(!passMatch) return reply.status(400).send({message:"Password mismatch"})
+
+        const jwtToken = jwt.sign({id:user._id}, process.env.JWTSECRET)
+        delete user.password
+        reply.status(201).send({jwtToken, user})
+    } catch (error) {
+        replay.status(500).send({message:error.message})
+    }
+}
+
