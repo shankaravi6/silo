@@ -27,9 +27,9 @@ export const userRegister = async (request, replay) => {
         })
 
         const existUser = await User.findOne({email: email})
-        if(existUser) return replay.status(200).send({message: "error", desc: "User already exists"}) 
+        if(existUser) return replay.status(200).send({message: "error", desc: "User Id already exists"}) 
         const registerData = await setRegisterData.save();
-        replay.status(201).send({message:"success",desc: "User created successfully", data:registerData})
+        replay.status(201).send({message:"success",desc: "Register successfully", data:registerData})
     } catch (error) {
         replay.status(500).send({message:error.message})
     }
@@ -43,7 +43,7 @@ export const userLogin = async (request, reply) => {
         if(!user) return reply.status(200).send({message:"error", desc:"User not found"})
 
         const passMatch = await bcrypt.compare(password, user.password)
-        if(!passMatch) return reply.status(200).send({message:"error", desc:"Password does't match"})
+        if(!passMatch) return reply.status(200).send({message:"error", desc:"Invalid EmailId Or Password"})
 
         const jwtToken = jwt.sign({id:user._id}, process.env.JWTSECRET)
         delete user.password

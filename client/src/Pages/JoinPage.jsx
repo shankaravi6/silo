@@ -27,7 +27,7 @@ const JoinPage = () => {
 
 
   return (
-    <SoCenterContainer jc="center">
+    <SoCenterContainer>
       <SoShadowBox>
         <SoFlex
           dir="row"
@@ -40,6 +40,9 @@ const JoinPage = () => {
             style={{
               transition:"all 2s ease",
               transform: `translateX(${type === "login" ? "100%" : "0"})`,
+              '@media and screen (max-width: 970px)': {
+                transform: "unset !important"
+              }
             }}
           >
             {type == "login" ? (
@@ -58,7 +61,9 @@ const JoinPage = () => {
             width="600px"
             height="600px"
             jc="center"
-            style={{ position: "relative", transition:"all 2s ease", transform: `translateX(${type === "login" ? "-100%" : "0"})`, }}
+            style={{ position: "relative", transition:"all 2s ease", transform: `translateX(${type === "login" ? "-100%" : "0"})`,'@media and screen (max-width: 970px)': {
+                transform: "unset !important"
+              } }}
           >
             <SoDiv
               onClick={() => dispatch(setMode())}

@@ -38,9 +38,14 @@ export const SoFlex = styled.div`
   margin: ${(props) => props.m};
   width: ${(props) => props.width};
   height: ${(props) => props.height};
+  justify-content: ${(props) => (props.jc ? props.jc : "center")};
+  align-items: ${(props) => props.ai};
+
 
   @media screen and (max-width: 970px) {
     flex-direction: column;
+    justify-content:center;
+    align-items: center;
   }
 `;
 
@@ -70,6 +75,7 @@ export const SoBox = styled.div`
   @media screen and (max-width: 970px) {
     width: ${(props) => (props.width ? props.width : "auto")};
     height: ${(props) => (props.height ? props.height : "auto")};
+    transform: translateX(0) !important;
   }
 `;
 
@@ -117,9 +123,11 @@ export const SoDiv = styled.div`
 `;
 
 export const SoTypography = styled.p`
-  font-size: 100%;
+  font-size: ${(props) => (props.fs ? props.fs : "100%")};
   letter-spacing: 1px;
-  font-family: "Quicksand", sans-serif;
+  font-family: ${(props) => (props.fm ? props.fm : `"Quicksand", sans-serif`)};
+  padding: ${(props) => props.p};
+  margin: ${(props) => props.m};
 `;
 
 

@@ -1,5 +1,6 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import {
+  SoCenterContainer,
   SoCover,
   SoFlex,
   SoForm,
@@ -12,16 +13,33 @@ import { setAlert, setLoginData, setRegisterData, setType } from "../State";
 import { Formik } from "formik";
 import * as yup from "yup";
 import SoInput from "../Components/SoInput";
-import { makeApiCall } from "../Functions/APICall";
+import { makeApiCall } from "../Functions/ApiCall";
 import SoButton from "../Components/SoButton";
+import { useNavigate } from "react-router-dom";
+import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
 
 const LoginForm = ({ type }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const reduxData = useSelector((state) => state.silo);
+
+  const handleGoogleLogin = (response) => {
+    var data = jwtDecode(response.credential);
+    const { email_verified, given_name, family_name, email } = data;
+    const values = {
+      firstName: family_name,
+      lastName: given_name,
+      email,
+      password: "",
+      email_verified,
+    };
+    console.log("Google data", values)
+    handleFormSubmit(values);
+  }
 
   const handleFormSubmit = async (values, onSubmitProps) => {
     console.log(values);
-    onSubmitProps.resetForm();
     if (type === "register") {
       dispatch(setRegisterData(values));
       const registerResponse = await makeApiCall(
@@ -30,20 +48,32 @@ const LoginForm = ({ type }) => {
         values
       );
       console.log("registerResponse", registerResponse);
-      if(registerResponse.message == "success")
-      dispatch(setAlert({open:true, msg:registerResponse.desc, type:"success"}))
-      else
-      dispatch(setAlert({open:true, msg:registerResponse.desc, type:"error"}))
+      if (registerResponse.message == "success") {
+        dispatch(
+          setAlert({ open: true, msg: registerResponse.desc, type: "success" })
+        );
+        //navigate("/home");
+      } else {
+        dispatch(
+          setAlert({ open: true, msg: registerResponse.desc, type: "error" })
+        );
+      }
     }
     if (type === "login") {
       dispatch(setLoginData(values));
       const loginResponse = await makeApiCall("/user/login", "POST", values);
       console.log("loginResponse", loginResponse);
-      if(loginResponse.message == "success")
-      dispatch(setAlert({open:true, msg:loginResponse.desc, type:"success"}))
-      else
-      dispatch(setAlert({open:true, msg:loginResponse.desc, type:"error"}))
+      if (loginResponse.message == "success") {
+        // dispatch(
+        //   setAlert({ open: true, msg: loginResponse.desc, type: "success" })
+        // );
+        navigate("/home");
+      } else
+        dispatch(
+          setAlert({ open: true, msg: loginResponse.desc, type: "error" })
+        );
     }
+    onSubmitProps.resetForm();
   };
 
   const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
@@ -95,7 +125,7 @@ const LoginForm = ({ type }) => {
         initialValues={
           type === "login" ? initialValuesLogin : initialValuesRegister
         }
-        validationSchema={type === "login" ? loginSchema : regsiterSchema}
+        validationSchema={type === "login" ? loginSchema : type === "register" ? regsiterSchema : null}
       >
         {({
           values,
@@ -128,9 +158,7 @@ const LoginForm = ({ type }) => {
                     onChange={handleChange}
                     name="firstName"
                     value={values.firstName}
-                    err={
-                      touched.firstName && errors.firstName
-                    }
+                    err={touched.firstName && errors.firstName}
                     helperText={touched.firstName && errors.firstName}
                   />
                   <SoInput
@@ -174,10 +202,7 @@ const LoginForm = ({ type }) => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   name="confirmPassword"
-                  err={
-                    touched.confirmPassword &&
-                    errors.confirmPassword
-                  }
+                  err={touched.confirmPassword && errors.confirmPassword}
                   helperText={touched.confirmPassword && errors.confirmPassword}
                 />
               )}
@@ -198,10 +223,27 @@ const LoginForm = ({ type }) => {
                 {type == "login" ? "Register" : "Login"}
               </SoSpan>
             </SoTypography>
+            <SoTypography style={{textAlign:"center"}} p="10px 0 0 0">
+              Or
+            </SoTypography>
+            <SoFlex jc="center" p="10px 0">
+            <GoogleOAuthProvider clientId="371665581818-tgjhvkqgp2ijcln872qr22rgj3hf274u.apps.googleusercontent.com">
+          <GoogleLogin
+            onSuccess={(response) => handleGoogleLogin(response)}
+            onError={() => console.log("Error")}
+            clientId="371665581818-tgjhvkqgp2ijcln872qr22rgj3hf274u.apps.googleusercontent.com"
+            scopes={[
+              "profile",
+              "email",
+              "https://www.googleapis.com/auth/user.phonenumbers.read",
+              "https://www.googleapis.com/auth/user.addresses.read",
+            ]}
+          />
+        </GoogleOAuthProvider>
+        </SoFlex>
           </>
         )}
       </Formik>
-      
     </SoCover>
   );
 };

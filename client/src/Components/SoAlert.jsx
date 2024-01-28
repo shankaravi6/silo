@@ -16,6 +16,8 @@ const SoAlert = () => {
     dispatch(setAlert({}))
   };
 
+  const severity = alert.type && alert.type !== '' ? (alert.type === 'success' ? 'success' : 'error') : 'info';
+
   return (
     <Snackbar
       anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
@@ -23,7 +25,7 @@ const SoAlert = () => {
       autoHideDuration={3000}
       onClose={handleClose}
     >
-      <Alert onClose={handleClose} severity={alert.type === 'success' ? 'success' : alert.type === 'error' ? 'error' : ''} variant='filled'>
+      <Alert onClose={handleClose} severity={severity} variant='filled'>
         {alert.msg}
       </Alert>
     </Snackbar>
