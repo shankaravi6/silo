@@ -39,7 +39,7 @@ const StyledButton = SiloComponent(styled.button`
 `);
 
 
-const SoButton = ({ height, width, onChange, onSubmit, onClick, onBlur, type, children }) => {
+const SoButton = ({ height, width, onChange, onSubmit, onClick, onBlur, type, children, style }) => {
   return (
       <StyledButton
         height={height}
@@ -49,6 +49,7 @@ const SoButton = ({ height, width, onChange, onSubmit, onClick, onBlur, type, ch
         onClick={onClick}
         onBlur={onBlur}
         type={type}
+        style={style}
       >
       {children}
       </StyledButton>

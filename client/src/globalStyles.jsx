@@ -27,7 +27,6 @@ export const SoCenterContainer = styled.div`
   padding: ${(props) => props.p};
   margin: ${(props) => props.m};
   align-items: center;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 `;
 
 export const SoFlex = styled.div`
@@ -66,16 +65,17 @@ export const SoBox = styled.div`
   display: flex;
   justify-content: ${(props) => props.jc};
   align-items: ${(props) => props.ai};
-  width: ${(props) => (props.width ? props.width : "500px")};
-  height: ${(props) => (props.height ? props.height : "500px")};
+  width: ${(props) => (props.width ? props.width : "auto")};
+  height: ${(props) => (props.height ? props.height : "auto")};
   background: ${(props) => props.bg};
   padding: ${(props) => props.p};
   margin: ${(props) => props.m};
 
   @media screen and (max-width: 970px) {
-    width: ${(props) => (props.width ? props.width : "auto")};
-    height: ${(props) => (props.height ? props.height : "auto")};
+    width: ${(props) => (props.sw ? props.sw : "auto")};
+    height: ${(props) => (props.sh ? props.sh : "auto")};
     transform: translateX(0) !important;
+    display: ${(props) => props.display};
   }
 `;
 

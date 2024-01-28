@@ -20,7 +20,7 @@ const mapStateToProps = (state) => ({
 
 const StyledInput = SiloComponent(styled.input`
   position: relative;
-  padding: 10px 20px;
+  padding: 7.5px 20px;
   width: ${(props) => (props.width ? props.width : "100%")};
   border-radius: 5px;
   background-color: ${(props) => props.palette.background.default};
@@ -29,6 +29,10 @@ const StyledInput = SiloComponent(styled.input`
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
   transition: all 0.3s ease;
   font-family: "Quicksand", sans-serif;
+
+  &::placeholder {
+  color: ${(props) => props.palette.placeholder.main};
+  }
 
   &:hover {
     border: 2.5px solid ${(props) => (props.err ? props.palette.error.main : props.palette.primary.fourth)};
@@ -51,7 +55,7 @@ const HelperText = styled.span`
   color: ${(props) => (props.err ? "#FF5733" : "#FF5733")};
 `;
 
-const SoInput = ({ placeholder, width, onChange, name, value, err, helperText, type }) => {
+const SoInput = ({ placeholder, width, onChange, name, value, err, helperText, type, style }) => {
   return (
     <span style={{width:"100%"}}>
       <StyledInput
@@ -62,6 +66,7 @@ const SoInput = ({ placeholder, width, onChange, name, value, err, helperText, t
         value={value}
         err={err}
         type={type}
+        style={style}
       />
       {err && helperText && <HelperText err={err}>{helperText}</HelperText>}
     </span>

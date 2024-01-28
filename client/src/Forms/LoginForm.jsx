@@ -143,14 +143,14 @@ const LoginForm = ({ type }) => {
               display="flex"
               jc="center"
               dir="column"
-              gap="20px"
+              gap="15px"
               width="100%"
-              p="25px 50px"
+              p="15px 50px 25px 50px"
             >
               {type == "login" ? (
                 <></>
               ) : (
-                <SoFlex gap="25px">
+                <SoFlex gap="15px">
                   <SoInput
                     placeholder="First Name"
                     width="100%"
@@ -206,15 +206,15 @@ const LoginForm = ({ type }) => {
                   helperText={touched.confirmPassword && errors.confirmPassword}
                 />
               )}
-              <SoButton type="submit">
+              <SoButton type="submit" style={{marginTop:"5px"}}>
                 {type == "login" ? "Sign In" : "Sign Up"}
               </SoButton>
             </SoForm>
 
             <SoTypography style={{ textAlign: "center" }}>
               {type == "login"
-                ? "Don't have an account "
-                : "Already have an account "}
+                ? "Don't have an account? "
+                : "Already have an account? "}
               <SoSpan
                 style={{ textDecoration: "underline", cursor: "pointer" }}
                 className="set-login"

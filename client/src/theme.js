@@ -54,6 +54,9 @@ export const themeSettings = (mode) => {
             },
             error:{
               main:"#FF5733"
+            },
+            placeholder:{
+              main: "#999999"
             }
           }
         : {
@@ -77,6 +80,9 @@ export const themeSettings = (mode) => {
             },
             error:{
               main:"#FF5733"
+            },
+            placeholder:{
+              main: "#666666"
             }
           }),
     },

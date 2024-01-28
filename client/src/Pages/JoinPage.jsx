@@ -25,45 +25,41 @@ const JoinPage = () => {
   const mode = useSelector((state) => state.silo.mode);
   const type = useSelector((state) => state.silo.type);
 
-
   return (
     <SoCenterContainer>
       <SoShadowBox>
-        <SoFlex
-          dir="row"
-          style={{ position: "relative" }}
-        >
+        <SoFlex dir="row" style={{ position: "relative" }}>
           <SoBox
             width="600px"
             height="600px"
             p="0px"
+            display="none"
             style={{
-              transition:"all 2s ease",
+              transition: "all 2s ease",
               transform: `translateX(${type === "login" ? "100%" : "0"})`,
-              '@media and screen (max-width: 970px)': {
-                transform: "unset !important"
-              }
             }}
           >
-            {type == "login" ? (
-              <SoImg style={{animation: "fadeIn 2s ease-in"}}
-                src="https://th.bing.com/th/id/OIG2.A2pzrcdUuqsUa66NALCa?pid=ImgGn"
-                alt="login_img"
-              />
-            ) : (
-              <SoImg
-                src="https://th.bing.com/th/id/OIG4.HbcvRT0w16kK632OnVRB?pid=ImgGn"
-                alt="register_img"
-              />
-            )}
+            <SoImg
+              id="colone"
+              src={
+                type === "login"
+                  ? "https://th.bing.com/th/id/OIG2.A2pzrcdUuqsUa66NALCa?pid=ImgGn"
+                  : "https://th.bing.com/th/id/OIG4.HbcvRT0w16kK632OnVRB?pid=ImgGn"
+              }
+              alt="login_img"
+            />
           </SoBox>
           <SoBox
             width="600px"
             height="600px"
             jc="center"
-            style={{ position: "relative", transition:"all 2s ease", transform: `translateX(${type === "login" ? "-100%" : "0"})`,'@media and screen (max-width: 970px)': {
-                transform: "unset !important"
-              } }}
+            sw="100vw"
+            sh="100vh"
+            style={{
+              position: "relative",
+              transition: "all 2s ease",
+              transform: `translateX(${type === "login" ? "-100%" : "0"})`,
+            }}
           >
             <SoDiv
               onClick={() => dispatch(setMode())}
