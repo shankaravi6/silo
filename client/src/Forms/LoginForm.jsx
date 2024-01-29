@@ -9,7 +9,7 @@ import {
   SoTypography,
 } from "../globalStyles";
 import { useDispatch, useSelector } from "react-redux";
-import { setAlert, setLoginData, setRegisterData, setType } from "../State";
+import { setAlert, setLoginData, setLoginResponse, setRegisterData, setType } from "../State";
 import { Formik } from "formik";
 import * as yup from "yup";
 import SoInput from "../Components/SoInput";
@@ -67,6 +67,7 @@ const LoginForm = ({ type }) => {
         // dispatch(
         //   setAlert({ open: true, msg: loginResponse.desc, type: "success" })
         // );
+        dispatch(setLoginResponse(loginResponse));
         navigate("/home");
       } else
         dispatch(

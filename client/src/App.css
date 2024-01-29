@@ -32,10 +32,16 @@
 }
 
 .home-description {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   letter-spacing: 10px;
   font-family: AquireLight;
   text-align: center;
+}
+
+@media screen and (max-width:970px) {
+  .home-description {
+    font-size: 1.5rem;
+  }
 }
 
 
