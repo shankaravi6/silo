@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   mode: "light",
-  type: "login",
+  type: "register",
   error:"",
   loginData : null,
   registerData : null,
