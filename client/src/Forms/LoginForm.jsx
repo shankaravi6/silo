@@ -18,6 +18,9 @@ import SoButton from "../Components/SoButton";
 import { useNavigate } from "react-router-dom";
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
+import {LoginSocialFacebook} from "reactjs-social-login";
+import {FacebookLoginButton} from "react-social-login-buttons"
+
 
 const LoginForm = ({ type }) => {
   const dispatch = useDispatch();
@@ -241,6 +244,13 @@ const LoginForm = ({ type }) => {
             ]}
           />
         </GoogleOAuthProvider>
+        <LoginSocialFacebook
+          appId="1100784461270320"
+          onResolve={(response) => console.log(response)}
+          onReject={(error) => console.log(error)}
+        >
+          <FacebookLoginButton/>
+        </LoginSocialFacebook>
         </SoFlex>
           </>
         )}
