@@ -256,28 +256,30 @@ const LoginForm = ({ type }) => {
             <SoTypography style={{ textAlign: "center" }} p="10px 0 0 0">
               Or
             </SoTypography>
-            <SoFlex jc="center" p="10px 0">
-            <GoogleOAuthProvider clientId="371665581818-tgjhvkqgp2ijcln872qr22rgj3hf274u.apps.googleusercontent.com">
-          <GoogleLogin
-            onSuccess={(response) => handleGoogleLogin(response)}
-            onError={() => console.log("Error")}
-            clientId="371665581818-tgjhvkqgp2ijcln872qr22rgj3hf274u.apps.googleusercontent.com"
-            scopes={[
-              "profile",
-              "email",
-              "https://www.googleapis.com/auth/user.phonenumbers.read",
-              "https://www.googleapis.com/auth/user.addresses.read",
-            ]}
-          />
-        </GoogleOAuthProvider>
-        <LoginSocialFacebook
-          appId="1100784461270320"
-          onResolve={(response) => console.log(response)}
-          onReject={(error) => console.log(error)}
-        >
-          <FacebookLoginButton/>
-        </LoginSocialFacebook>
-        </SoFlex>
+            <SoFlex jc="center" ai="center" gap="15px" p="10px 0">
+              <GoogleOAuthProvider clientId="371665581818-tgjhvkqgp2ijcln872qr22rgj3hf274u.apps.googleusercontent.com">
+                <GoogleLogin
+                  onSuccess={(response) => handleGoogleLogin(response)}
+                  onError={() => console.log("Error")}
+                  clientId="371665581818-tgjhvkqgp2ijcln872qr22rgj3hf274u.apps.googleusercontent.com"
+                  scopes={[
+                    "profile",
+                    "email",
+                    "https://www.googleapis.com/auth/user.phonenumbers.read",
+                    "https://www.googleapis.com/auth/user.addresses.read",
+                  ]}
+                />
+              </GoogleOAuthProvider>
+              <LoginSocialFacebook
+                appId="1100784461270320"
+                onResolve={(response) => handleFacebookLogin(response.data)}
+                onReject={(error) => console.log(error)}
+              >
+                <FacebookLoginButton className="fb-log"
+                  style={{ height: "37px", fontFamily: "Calibri", fontSize:"16px" }}
+                />
+              </LoginSocialFacebook>
+            </SoFlex>
           </>
         )}
       </Formik>
