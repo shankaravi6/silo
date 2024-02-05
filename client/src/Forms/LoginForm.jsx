@@ -9,7 +9,13 @@ import {
   SoTypography,
 } from "../globalStyles";
 import { useDispatch, useSelector } from "react-redux";
-import { setAlert, setLoginData, setLoginResponse, setRegisterData, setType } from "../State";
+import {
+  setAlert,
+  setLoginData,
+  setLoginResponse,
+  setRegisterData,
+  setType,
+} from "../State";
 import { Formik } from "formik";
 import * as yup from "yup";
 import SoInput from "../Components/SoInput";
@@ -18,9 +24,8 @@ import SoButton from "../Components/SoButton";
 import { useNavigate } from "react-router-dom";
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
-import {LoginSocialFacebook} from "reactjs-social-login";
-import {FacebookLoginButton} from "react-social-login-buttons"
-
+import { LoginSocialFacebook } from "reactjs-social-login";
+import { FacebookLoginButton } from "react-social-login-buttons";
 
 const LoginForm = ({ type }) => {
   const dispatch = useDispatch();
@@ -29,6 +34,7 @@ const LoginForm = ({ type }) => {
 
   const handleGoogleLogin = (response) => {
     var data = jwtDecode(response.credential);
+    console.log(data);
     const { email_verified, given_name, family_name, email } = data;
     const values = {
       firstName: family_name,
@@ -37,9 +43,23 @@ const LoginForm = ({ type }) => {
       password: "",
       email_verified,
     };
-    console.log("Google data", values)
+    console.log("Google data", values);
     handleFormSubmit(values);
-  }
+  };
+
+  const handleFacebookLogin = (response) => {
+    console.log(response);
+    const { first_name, last_name, email, graphDomain } = response;
+    const values = {
+      firstName: first_name,
+      lastName: last_name,
+      email,
+      password: "",
+      graphDomain,
+    };
+    console.log("Facebook data", values);
+    handleFormSubmit(values);
+  };
 
   const handleFormSubmit = async (values, onSubmitProps) => {
     console.log(values);
@@ -129,7 +149,13 @@ const LoginForm = ({ type }) => {
         initialValues={
           type === "login" ? initialValuesLogin : initialValuesRegister
         }
-        validationSchema={type === "login" ? loginSchema : type === "register" ? regsiterSchema : null}
+        validationSchema={
+          type === "login"
+            ? loginSchema
+            : type === "register"
+            ? regsiterSchema
+            : null
+        }
       >
         {({
           values,
@@ -210,7 +236,7 @@ const LoginForm = ({ type }) => {
                   helperText={touched.confirmPassword && errors.confirmPassword}
                 />
               )}
-              <SoButton type="submit" style={{marginTop:"5px"}}>
+              <SoButton type="submit" style={{ marginTop: "5px" }}>
                 {type == "login" ? "Sign In" : "Sign Up"}
               </SoButton>
             </SoForm>
@@ -227,31 +253,33 @@ const LoginForm = ({ type }) => {
                 {type == "login" ? "Register" : "Login"}
               </SoSpan>
             </SoTypography>
-            <SoTypography style={{textAlign:"center"}} p="10px 0 0 0">
+            <SoTypography style={{ textAlign: "center" }} p="10px 0 0 0">
               Or
             </SoTypography>
-            <SoFlex jc="center" p="10px 0">
-            <GoogleOAuthProvider clientId="371665581818-tgjhvkqgp2ijcln872qr22rgj3hf274u.apps.googleusercontent.com">
-          <GoogleLogin
-            onSuccess={(response) => handleGoogleLogin(response)}
-            onError={() => console.log("Error")}
-            clientId="371665581818-tgjhvkqgp2ijcln872qr22rgj3hf274u.apps.googleusercontent.com"
-            scopes={[
-              "profile",
-              "email",
-              "https://www.googleapis.com/auth/user.phonenumbers.read",
-              "https://www.googleapis.com/auth/user.addresses.read",
-            ]}
-          />
-        </GoogleOAuthProvider>
-        <LoginSocialFacebook
-          appId="1100784461270320"
-          onResolve={(response) => console.log(response)}
-          onReject={(error) => console.log(error)}
-        >
-          <FacebookLoginButton/>
-        </LoginSocialFacebook>
-        </SoFlex>
+            <SoFlex jc="center" ai="center" gap="15px" p="10px 0">
+              <GoogleOAuthProvider clientId="371665581818-tgjhvkqgp2ijcln872qr22rgj3hf274u.apps.googleusercontent.com">
+                <GoogleLogin
+                  onSuccess={(response) => handleGoogleLogin(response)}
+                  onError={() => console.log("Error")}
+                  clientId="371665581818-tgjhvkqgp2ijcln872qr22rgj3hf274u.apps.googleusercontent.com"
+                  scopes={[
+                    "profile",
+                    "email",
+                    "https://www.googleapis.com/auth/user.phonenumbers.read",
+                    "https://www.googleapis.com/auth/user.addresses.read",
+                  ]}
+                />
+              </GoogleOAuthProvider>
+              <LoginSocialFacebook
+                appId="1100784461270320"
+                onResolve={(response) => handleFacebookLogin(response.data)}
+                onReject={(error) => console.log(error)}
+              >
+                <FacebookLoginButton className="fb-log"
+                  style={{ height: "37px", fontFamily: "Calibri", fontSize:"16px" }}
+                />
+              </LoginSocialFacebook>
+            </SoFlex>
           </>
         )}
       </Formik>

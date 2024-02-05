@@ -38,6 +38,11 @@
   text-align: center;
 }
 
+.fb-log svg{
+  width: 20px;
+  height: 20px;
+}
+
 @media screen and (max-width:970px) {
   .home-description {
     font-size: 1.5rem;
