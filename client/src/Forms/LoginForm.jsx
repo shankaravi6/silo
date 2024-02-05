@@ -246,7 +246,7 @@ const LoginForm = ({ type }) => {
         </GoogleOAuthProvider>
         <LoginSocialFacebook
           appId="1100784461270320"
-          onResolve={(response) => console.log(response)}
+          onResolve={(response) => alert(response)}
           onReject={(error) => console.log(error)}
         >
           <FacebookLoginButton/>
