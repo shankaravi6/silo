@@ -24,6 +24,15 @@ const JoinPage = () => {
   const dispatch = useDispatch();
   const mode = useSelector((state) => state.silo.mode);
   const type = useSelector((state) => state.silo.type);
+  const [fadeIn, setFadeIn] = useState(false);
+
+  useEffect(() => {
+    setFadeIn(true);
+    const timeout = setTimeout(() => {
+      setFadeIn(false);
+    }, 2000); 
+    return () => clearTimeout(timeout);
+  }, [type]);
 
   return (
     <SoCenterContainer>
@@ -47,6 +56,7 @@ const JoinPage = () => {
                   : "https://th.bing.com/th/id/OIG4.HbcvRT0w16kK632OnVRB?pid=ImgGn"
               }
               alt="login_img"
+              className={fadeIn ? "fadeIn" : ""}
             />
           </SoBox>
           <SoBox
