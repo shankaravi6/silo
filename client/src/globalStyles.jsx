@@ -3,6 +3,7 @@ import { colorTokens } from "./theme.js";
 import { connect } from "react-redux";
 import { useTheme } from "@mui/material";
 import React from "react";
+import { useThemeContext } from "./ThemeProvider.jsx";
 
 const mapStateToProps = (state) => ({
   mode: state.silo.mode,
@@ -11,7 +12,7 @@ const mapStateToProps = (state) => ({
 const SiloComponent = (StyledComponent) => {
   const ConnectedStyledComponent = connect(mapStateToProps)(
     ({ dispatch, ...rest }) => {
-      const { palette } = useTheme();
+      const { palette } = useThemeContext();
       return <StyledComponent {...rest} palette={palette} />;
     }
   );
@@ -122,13 +123,14 @@ export const SoDiv = styled.div`
   display: block;
 `;
 
-export const SoTypography = styled.p`
+export const SoTypography = SiloComponent(styled.p`
   font-size: ${(props) => (props.fs ? props.fs : "100%")};
   letter-spacing: 1px;
   font-family: ${(props) => (props.fm ? props.fm : `"Quicksand", sans-serif`)};
   padding: ${(props) => props.p};
   margin: ${(props) => props.m};
-`;
+  color: ${(props) => props.palette.primary.main};
+`);
 
 
 export const SoSpan = styled.span`

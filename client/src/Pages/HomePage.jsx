@@ -3,6 +3,7 @@ import { SoCenterContainer, SoTypography } from '../globalStyles';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
+import { useThemeContext } from '../ThemeProvider';
 
 const HomePage = () => {
 
@@ -18,12 +19,18 @@ const HomePage = () => {
     }
   },[])
 
+  const { palette } = useThemeContext();
+
+
   return (
+    <div style={{background:palette.background.default }}>
+
     <SoCenterContainer>
         <SoTypography fs="50px" fm="Silo">
             Home
         </SoTypography>
     </SoCenterContainer>
+    </div>
   );
 }
 

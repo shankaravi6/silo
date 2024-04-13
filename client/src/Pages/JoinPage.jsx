@@ -18,9 +18,10 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LoginForm from "../Forms/LoginForm";
 import SoAlert from "../Components/SoAlert";
+import { useThemeContext } from "../ThemeProvider";
 
 const JoinPage = () => {
-  const { palette } = useTheme();
+  const { palette } = useThemeContext();
   const dispatch = useDispatch();
   const mode = useSelector((state) => state.silo.mode);
   const type = useSelector((state) => state.silo.type);
@@ -35,6 +36,7 @@ const JoinPage = () => {
   }, [type]);
 
   return (
+    <div style={{background:palette.background.default }}>
     <SoCenterContainer>
       <SoShadowBox>
         <SoFlex dir="row" style={{ position: "relative" }}>
@@ -80,7 +82,7 @@ const JoinPage = () => {
                 cursor: "pointer",
               }}
             >
-              {mode === "light" ? <DarkModeIcon /> : <LightModeIcon />}
+              {mode === "light" ? <DarkModeIcon style={{color:palette.primary.main}} /> : <LightModeIcon style={{color:palette.primary.main}}   />}
             </SoDiv>
             <LoginForm type={type} />
           </SoBox>
@@ -88,6 +90,7 @@ const JoinPage = () => {
       </SoShadowBox>
       <SoAlert />
     </SoCenterContainer>
+    </div>
   );
 };
 

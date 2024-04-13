@@ -26,11 +26,14 @@ import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 import { LoginSocialFacebook } from "reactjs-social-login";
 import { FacebookLoginButton } from "react-social-login-buttons";
+import { useThemeContext } from "../ThemeProvider";
 
 const LoginForm = ({ type }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const reduxData = useSelector((state) => state.silo);
+
+  const {palette} = useThemeContext()
 
   const handleGoogleLogin = (response) => {
     var data = jwtDecode(response.credential);
@@ -241,7 +244,7 @@ const LoginForm = ({ type }) => {
               </SoButton>
             </SoForm>
 
-            <SoTypography style={{ textAlign: "center" }}>
+            <SoTypography style={{ textAlign: "center", color:palette.primary.main }}>
               {type == "login"
                 ? "Don't have an account? "
                 : "Already have an account? "}
@@ -253,7 +256,7 @@ const LoginForm = ({ type }) => {
                 {type == "login" ? "Register" : "Login"}
               </SoSpan>
             </SoTypography>
-            <SoTypography style={{ textAlign: "center" }} p="10px 0 0 0">
+            <SoTypography style={{ textAlign: "center",color:palette.primary.main }} p="10px 0 0 0">
               Or
             </SoTypography>
             <SoFlex jc="center" ai="center" gap="15px" p="10px 0">

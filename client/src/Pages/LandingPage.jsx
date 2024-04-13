@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import SoButton from "../Components/SoButton";
+import { useThemeContext } from "../ThemeProvider";
 
 export const Heading = styled.h1`
   font-family: Silo;
@@ -21,7 +22,7 @@ export const Heading = styled.h1`
 
 const LandingPage = () => {
  
-  const { palette } = useTheme();
+  const { palette } = useThemeContext();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

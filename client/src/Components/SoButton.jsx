@@ -2,6 +2,7 @@ import { useTheme } from "@mui/material";
 import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
+import { useThemeContext } from "../ThemeProvider";
 
 const mapStateToProps = (state) => ({
     mode: state.silo.mode,
@@ -10,7 +11,7 @@ const mapStateToProps = (state) => ({
   const SiloComponent = (StyledComponent) => {
     const ConnectedStyledComponent = connect(mapStateToProps)(
       ({ dispatch, ...rest }) => {
-        const { palette } = useTheme();
+        const { palette } = useThemeContext();
         return <StyledComponent {...rest} palette={palette} />;
       }
     );
