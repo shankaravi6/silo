@@ -13,7 +13,7 @@ import {
 } from "../globalStyles";
 import { useDispatch, useSelector } from "react-redux";
 import { setMode, setType } from "../State";
-import { useTheme } from "@mui/material";
+
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LoginForm from "../Forms/LoginForm";

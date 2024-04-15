@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colorTokens } from "./theme.js";
 import { connect } from "react-redux";
-import { useTheme } from "@mui/material";
+
 import React from "react";
 import { useThemeContext } from "./ThemeProvider.jsx";
 
@@ -110,8 +110,31 @@ export const SoForm = styled.form`
   margin: ${(props) => props.m};
 `;
 
+export const SoHeading = SiloComponent(styled.h1`
+  font-family: Silo;
+  font-size: 10rem;
+  letter-spacing: 50px;
+  color: ${(props) => props.palette.primary.main};
+
+
+  @media screen and (max-width: 960px) {
+    font-size: 5rem;
+    letter-spacing: 30px;
+    text-align: center;
+    margin-left: 30px;
+  }
+`);
+
 export const SoTitle = SiloComponent(styled.h1`
   font-family: Silo;
+  font-size: 2.5rem;
+  text-align: center;
+  letter-spacing: 10px;
+  color: ${(props) => props.palette.primary.main};
+`);
+
+export const SoSubTitle = SiloComponent(styled.h1`
+  font-family: AquireLight;
   font-size: 2.5rem;
   text-align: center;
   letter-spacing: 10px;
