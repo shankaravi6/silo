@@ -114,7 +114,7 @@ export const SoHeading = SiloComponent(styled.h1`
   font-family: Silo;
   font-size: 10rem;
   letter-spacing: 50px;
-  color: ${(props) => props.palette.primary.main};
+  color: ${(props) => props.palette.text.main};
 
 
   @media screen and (max-width: 960px) {
@@ -130,7 +130,7 @@ export const SoTitle = SiloComponent(styled.h1`
   font-size: 2.5rem;
   text-align: center;
   letter-spacing: 10px;
-  color: ${(props) => props.palette.primary.main};
+  color: ${(props) => props.palette.text.main};
 `);
 
 export const SoSubTitle = SiloComponent(styled.h1`
@@ -138,7 +138,7 @@ export const SoSubTitle = SiloComponent(styled.h1`
   font-size: 2.5rem;
   text-align: center;
   letter-spacing: 10px;
-  color: ${(props) => props.palette.primary.main};
+  color: ${(props) => props.palette.text.main};
 `);
 
 
@@ -152,7 +152,7 @@ export const SoTypography = SiloComponent(styled.p`
   font-family: ${(props) => (props.fm ? props.fm : `"Quicksand", sans-serif`)};
   padding: ${(props) => props.p};
   margin: ${(props) => props.m};
-  color: ${(props) => props.palette.primary.main};
+  color: ${(props) => props.palette.text.main};
 `);
 
 

@@ -23,11 +23,10 @@ const StyledButton = SiloComponent(styled.button`
   font-size:100%;
   text-align: center;
   letter-spacing: 5px;
-  color: ${(props) => props.palette.primary.option};
-  background-color: ${(props) => props.palette.background.secondary};
+  color: ${(props) => props.palette.text.high};
+  background-color: ${(props) => props.palette.background.low};
   box-shadow: ${(props) => props.palette.shadow.main} 0px 2px 4px;
   transition: all 0.3s ease;
-  font-family: "Quicksand", sans-serif;
   font-weight: 500;
   padding: 10px 20px;
   width: auto;
@@ -35,7 +34,7 @@ const StyledButton = SiloComponent(styled.button`
 
   &:hover {
   box-shadow: ${(props) => props.palette.shadow.main} 0px 5px 15px;
-  background-color: ${(props) => props.palette.background.third};
+  background-color: ${(props) => props.palette.background.mid};
   }
 `);
 

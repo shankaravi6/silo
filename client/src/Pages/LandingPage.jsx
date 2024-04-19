@@ -18,9 +18,9 @@ const LandingPage = () => {
   return (
     <div
       className="home-page"
-      style={{ background: palette.background.default }}
+      style={{ background: palette.background.high }}
     >
-      <SoHeading style={{ color: palette.primary.main }}>
+      <SoHeading style={{ color: palette.text.main }}>
         SILO
       </SoHeading>
       <SoSubTitle

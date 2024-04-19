@@ -1,31 +1,15 @@
 export const colorTokens = {
   drops: {
-    0:"#f2f2f2",
-    1:"#fff4e6",
-    2.5:"#ffe9cc",
-    5:"#ffdeb3",
-    10:"#ffd7a3",
-    20: "#e8e2c9",
-    30: "#e1d9b7",
-    40: "#d9cfa5",
-    50: "#d2c593",
-    60: "#cabc81",
-    70: "#c3b26f",
-    100: "#bba85d",
-    200: "#b49f4b",
-    300: "#a28f44",
-    400: "#907f3c",
-    500: "#7e6f35",
-    600: "#6c5f2d",
-    700: "#5a4f26",
-    800: "#48401e",
-    900: "#363017",
-    1000: "#2b2612",
-    1200: "#24200f",
-    1250:"#463f20",
-    1300:"#352f18",
-    1400:"#231f10",
-    1500: "#121008",
+    100: "#fff4e6",
+    150:"#ffe9cc",
+    200: "#ffdeb3",
+    300: "#ffd7a3",
+    400: "#b36500",
+    500: "#995700",
+    600: "#804800",
+    700: "#663a00",
+    800: "#331d00",
+    900: "#1a0e00",
   },
 };
 
@@ -36,54 +20,51 @@ export const themeSettings = (mode) => {
       ...(mode === "dark"
         ? {
             // palette values for dark mode
-            primary: {
-              main: colorTokens.drops[10],
-              sub: colorTokens.drops[40],
-              third: colorTokens.drops[5],
-              fourth: colorTokens.drops[1],
-              option: colorTokens.drops[1500]
+            text: {
+              main: colorTokens.drops[300],
+              mid: colorTokens.drops[200],
+              low: colorTokens.drops[100],
+              high: colorTokens.drops[900],
             },
             background: {
-              default: colorTokens.drops[1500],
-              secondary: colorTokens.drops[5],
-              third: colorTokens.drops[10],
+              high: colorTokens.drops[900],
+              mid: colorTokens.drops[300],
+              low: colorTokens.drops[150],
             },
             shadow: {
               main: "rgba(255, 255, 255, 0.35)",
-              sub: "rgba(255, 255, 255, 0.25)"
+              sub: "rgba(255, 255, 255, 0.25)",
             },
-            error:{
-              main:"#FF5733"
+            error: {
+              main: "#FF5733",
             },
-            placeholder:{
-              main: "#999999"
-            }
+            placeholder: {
+              main: "#999999",
+            },
           }
         : {
             // palette values for light mode
-            primary: {
-              main: colorTokens.drops[800],
-              sub: colorTokens.drops[700],
-              third: colorTokens.drops[600],
-              fourth: colorTokens.drops[400],
-              option: colorTokens.drops[10]
-
+            text: {
+              main: colorTokens.drops[700],
+              mid: colorTokens.drops[500],
+              low: colorTokens.drops[400],
+              high: colorTokens.drops[300],
             },
             background: {
-              default: colorTokens.drops[10],
-              secondary: colorTokens.drops[1000],
-              third: colorTokens.drops[1500],
+              high: colorTokens.drops[300],
+              mid: colorTokens.drops[900],
+              low: colorTokens.drops[700],
             },
             shadow: {
               main: "rgba(0, 0, 0, 0.35)",
-              sub: "rgba(0, 0, 0, 0.25)"
+              sub: "rgba(0, 0, 0, 0.25)",
             },
-            error:{
-              main:"#FF5733"
+            error: {
+              main: "#FF5733",
             },
-            placeholder:{
-              main: "#666666"
-            }
+            placeholder: {
+              main: "#666666",
+            },
           }),
     },
   };

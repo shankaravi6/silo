@@ -24,25 +24,24 @@ const StyledInput = SiloComponent(styled.input`
   padding: 7.5px 20px;
   width: ${(props) => (props.width ? props.width : "100%")};
   border-radius: 5px;
-  background-color: ${(props) => props.palette.background.default};
-  color: ${(props) => props.palette.primary.main};
-  border: 2.5px solid ${(props) => (props.err ? props.palette.error.main : props.palette.primary.third)};
+  background-color: ${(props) => props.palette.background.high};
+  color: ${(props) => props.palette.text.main};
+  border: 2.5px solid ${(props) => (props.err ? props.palette.error.main : props.palette.text.mid)};
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
   transition: all 0.3s ease;
-  font-family: "Quicksand", sans-serif;
 
   &::placeholder {
   color: ${(props) => props.palette.placeholder.main};
   }
 
   &:hover {
-    border: 2.5px solid ${(props) => (props.err ? props.palette.error.main : props.palette.primary.fourth)};
+    border: 2.5px solid ${(props) => (props.err ? props.palette.error.main : props.palette.text.low)};
     transition: all 0.3s ease;
   }
 
   &:active,
   &:focus {
-    border: 2.5px solid ${(props) => (props.err ? props.palette.error.main : props.palette.primary.third)};
+    border: 2.5px solid ${(props) => (props.err ? props.palette.error.main : props.palette.text.mid)};
     transition: all 0.3s ease;
     box-shadow: ${(props) => props.palette.shadow.main} 0px 5px 15px;
   }

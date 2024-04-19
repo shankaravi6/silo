@@ -36,7 +36,7 @@ const JoinPage = () => {
   }, [type]);
 
   return (
-    <div style={{background:palette.background.default }}>
+    <div style={{background:palette.background.high }}>
     <SoCenterContainer>
       <SoShadowBox>
         <SoFlex dir="row" style={{ position: "relative" }}>
@@ -82,7 +82,7 @@ const JoinPage = () => {
                 cursor: "pointer",
               }}
             >
-              {mode === "light" ? <DarkModeIcon style={{color:palette.primary.main}} /> : <LightModeIcon style={{color:palette.primary.main}}   />}
+              {mode === "light" ? <DarkModeIcon style={{color:palette.text.main}} /> : <LightModeIcon style={{color:palette.text.main}}   />}
             </SoDiv>
             <LoginForm type={type} />
           </SoBox>

@@ -23,7 +23,7 @@ const HomePage = () => {
 
 
   return (
-    <div style={{background:palette.background.default }}>
+    <div style={{background:palette.background.high }}>
 
     <SoCenterContainer>
         <SoTypography fs="50px" fm="Silo">

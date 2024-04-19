@@ -244,7 +244,7 @@ const LoginForm = ({ type }) => {
               </SoButton>
             </SoForm>
 
-            <SoTypography style={{ textAlign: "center", color:palette.primary.main }}>
+            <SoTypography style={{ textAlign: "center" }}>
               {type == "login"
                 ? "Don't have an account? "
                 : "Already have an account? "}
@@ -256,7 +256,7 @@ const LoginForm = ({ type }) => {
                 {type == "login" ? "Register" : "Login"}
               </SoSpan>
             </SoTypography>
-            <SoTypography style={{ textAlign: "center",color:palette.primary.main }} p="10px 0 0 0">
+            <SoTypography style={{ textAlign: "center"}} p="10px 0 0 0">
               Or
             </SoTypography>
             <SoFlex jc="center" ai="center" gap="15px" p="10px 0">
