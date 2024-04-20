@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import {
-  SoCenterContainer,
-  SoCover,
   SoFlex,
   SoForm,
-  SoSpan,
   SoTitle,
   SoTypography,
-} from "../globalStyles";
+} from "../StyledComponent/globalStyles";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setAlert,
@@ -26,7 +23,7 @@ import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 import { LoginSocialFacebook } from "reactjs-social-login";
 import { FacebookLoginButton } from "react-social-login-buttons";
-import { useThemeContext } from "../ThemeProvider";
+import { useThemeContext } from "../ThemeProvider/ThemeProvider";
 
 const LoginForm = ({ type }) => {
   const dispatch = useDispatch();
@@ -145,8 +142,8 @@ const LoginForm = ({ type }) => {
   };
 
   return (
-    <SoCover display="flex" jc="center" dir="column" width="100%">
-      <SoTitle>{type == "login" ? "Login" : "Register"}</SoTitle>
+    <SoFlex display="flex" jc="center" dir="column" width="100%">
+      <SoTitle ls='20px'>{type == "login" ? "Login" : "Register"}</SoTitle>
       <Formik
         onSubmit={handleFormSubmit}
         initialValues={
@@ -172,21 +169,21 @@ const LoginForm = ({ type }) => {
         }) => (
           <>
             <SoForm
+            width="100%"
               onSubmit={handleSubmit}
-              display="flex"
+            >
+            <SoFlex 
               jc="center"
               dir="column"
               gap="15px"
               width="100%"
-              p="15px 50px 25px 50px"
-            >
+              p="15px 50px 25px 50px">
               {type == "login" ? (
                 <></>
               ) : (
-                <SoFlex gap="15px">
+                <SoFlex width="100%" gap="15px">
                   <SoInput
                     placeholder="First Name"
-                    width="100%"
                     onBlur={handleBlur}
                     onChange={handleChange}
                     name="firstName"
@@ -196,7 +193,6 @@ const LoginForm = ({ type }) => {
                   />
                   <SoInput
                     placeholder="Last Name"
-                    width="100%"
                     onBlur={handleBlur}
                     onChange={handleChange}
                     value={values.lastName}
@@ -242,24 +238,24 @@ const LoginForm = ({ type }) => {
               <SoButton type="submit" style={{ marginTop: "5px" }}>
                 {type == "login" ? "Sign In" : "Sign Up"}
               </SoButton>
+              </SoFlex>
             </SoForm>
 
             <SoTypography style={{ textAlign: "center" }}>
               {type == "login"
                 ? "Don't have an account? "
                 : "Already have an account? "}
-              <SoSpan
-                style={{ textDecoration: "underline", cursor: "pointer" }}
-                className="set-login"
+              <SoTypography
+                className='underline cursor-pointer'
                 onClick={() => dispatch(setType())}
               >
                 {type == "login" ? "Register" : "Login"}
-              </SoSpan>
+              </SoTypography>
             </SoTypography>
             <SoTypography style={{ textAlign: "center"}} p="10px 0 0 0">
               Or
             </SoTypography>
-            <SoFlex jc="center" ai="center" gap="15px" p="10px 0">
+            <SoFlex bs='unset' jc="center" ai="center" gap="15px" p="10px 0">
               <GoogleOAuthProvider clientId="371665581818-tgjhvkqgp2ijcln872qr22rgj3hf274u.apps.googleusercontent.com">
                 <GoogleLogin
                   onSuccess={(response) => handleGoogleLogin(response)}
@@ -286,7 +282,7 @@ const LoginForm = ({ type }) => {
           </>
         )}
       </Formik>
-    </SoCover>
+    </SoFlex>
   );
 };
 

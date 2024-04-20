@@ -1,16 +1,10 @@
 import React, { useEffect, useMemo, useState } from "react";
 import {
   SoBox,
-  SoCenterContainer,
-  SoCover,
-  SoDiv,
+  SoContainer,
   SoFlex,
   SoImg,
-  SoShadowBox,
-  SoSpan,
-  SoTitle,
-  SoTypography,
-} from "../globalStyles";
+} from "../StyledComponent/globalStyles";
 import { useDispatch, useSelector } from "react-redux";
 import { setMode, setType } from "../State";
 
@@ -18,7 +12,7 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LoginForm from "../Forms/LoginForm";
 import SoAlert from "../Components/SoAlert";
-import { useThemeContext } from "../ThemeProvider";
+import { useThemeContext } from "../ThemeProvider/ThemeProvider";
 
 const JoinPage = () => {
   const { palette } = useThemeContext();
@@ -36,22 +30,21 @@ const JoinPage = () => {
   }, [type]);
 
   return (
-    <div style={{background:palette.background.high }}>
-    <SoCenterContainer>
-      <SoShadowBox>
-        <SoFlex dir="row" style={{ position: "relative" }}>
+   
+    <SoContainer>
+        <SoFlex dir="row" style={{ position: "relative" }} width='100%' height='100vh'>
+        <SoFlex bs={`${palette.shadow.sub} 0px 25px 50px -12px`}>
           <SoBox
             width="600px"
             height="600px"
-            p="0px"
-            display="none"
+            sdisplay="none"
             style={{
               transition: "all 2s ease",
               transform: `translateX(${type === "login" ? "100%" : "0"})`,
             }}
           >
             <SoImg
-              id="colone"
+              id="img"
               src={
                 type === "login"
                   ? "https://th.bing.com/th/id/OIG2.A2pzrcdUuqsUa66NALCa?pid=ImgGn"
@@ -64,33 +57,26 @@ const JoinPage = () => {
           <SoBox
             width="600px"
             height="600px"
-            jc="center"
             sw="100vw"
             sh="100vh"
+            className="relative"
             style={{
-              position: "relative",
               transition: "all 2s ease",
               transform: `translateX(${type === "login" ? "-100%" : "0"})`,
             }}
           >
-            <SoDiv
+            <SoBox
               onClick={() => dispatch(setMode())}
-              style={{
-                position: "absolute",
-                top: "15px",
-                right: "20px",
-                cursor: "pointer",
-              }}
+             className="absolute top-5 right-5 cursor-pointer"
             >
               {mode === "light" ? <DarkModeIcon style={{color:palette.text.main}} /> : <LightModeIcon style={{color:palette.text.main}}   />}
-            </SoDiv>
+            </SoBox>
             <LoginForm type={type} />
           </SoBox>
+          </SoFlex>
         </SoFlex>
-      </SoShadowBox>
       <SoAlert />
-    </SoCenterContainer>
-    </div>
+    </SoContainer>
   );
 };
 

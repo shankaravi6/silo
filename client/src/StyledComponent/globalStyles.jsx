@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import { colorTokens } from "./theme.js";
 import { connect } from "react-redux";
 
 import React from "react";
-import { useThemeContext } from "./ThemeProvider.jsx";
+import { useThemeContext } from "../ThemeProvider/ThemeProvider.jsx";
 
 const mapStateToProps = (state) => ({
   mode: state.silo.mode,
@@ -20,26 +19,26 @@ const SiloComponent = (StyledComponent) => {
   return ConnectedStyledComponent;
 };
 
-export const SoCenterContainer = styled.div`
+export const SoContainer = SiloComponent(styled.div`
   width: 100%;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
+  height: 100vh;
   padding: ${(props) => props.p};
   margin: ${(props) => props.m};
-  align-items: center;
-`;
+  background-color: ${(props) => props.bg ? props.bg : props.palette.background.high};
+`);
 
-export const SoFlex = styled.div`
+export const SoFlex = SiloComponent(styled.div`
   display: flex;
   flex-direction: ${(props) => props.dir};
   gap: ${(props) => props.gap};
   padding: ${(props) => props.p};
   margin: ${(props) => props.m};
   width: ${(props) => props.width};
-  height: ${(props) => props.height};
+  height: ${(props) => props.height ? props.height :'auto'};
   justify-content: ${(props) => (props.jc ? props.jc : "center")};
-  align-items: ${(props) => props.ai};
+  align-items: ${(props) => props.ai ? props.ai : "center"};
+  background-color: ${(props) => props.bg ? props.bg : props.palette.background.high};
+  box-shadow: ${(props) => props.bs ? props.bs : 'unset'};
 
 
   @media screen and (max-width: 970px) {
@@ -47,7 +46,7 @@ export const SoFlex = styled.div`
     justify-content:center;
     align-items: center;
   }
-`;
+`);
 
 export const SoGrid = styled.div`
   display: grid;
@@ -57,26 +56,18 @@ export const SoGrid = styled.div`
   margin: ${(props) => props.m};
 `;
 
-export const SoShadowBox = SiloComponent(styled.div`
-  box-shadow: ${(props) => props.palette.shadow.sub} 0px 25px 50px -12px;
-  padding: ${(props) => props.p};
-`);
 
 export const SoBox = styled.div`
-  display: flex;
-  justify-content: ${(props) => props.jc};
-  align-items: ${(props) => props.ai};
+  display: ${(props) => (props.display ? props.display : "flex")};
   width: ${(props) => (props.width ? props.width : "auto")};
   height: ${(props) => (props.height ? props.height : "auto")};
   background: ${(props) => props.bg};
-  padding: ${(props) => props.p};
-  margin: ${(props) => props.m};
 
   @media screen and (max-width: 970px) {
     width: ${(props) => (props.sw ? props.sw : "auto")};
     height: ${(props) => (props.sh ? props.sh : "auto")};
     transform: translateX(0) !important;
-    display: ${(props) => props.display};
+    display: ${(props) => (props.sdisplay ? props.sdisplay : "flex")};
   }
 `;
 
@@ -84,54 +75,27 @@ export const SoImg = styled.img`
   width: 100%;
 `;
 
-export const SoCover = styled.div`
-  display: ${(props) => props.display};
-  flex-direction: ${(props) => props.dir};
-  justify-content: ${(props) => props.jc};
-  align-items: ${(props) => props.ai};
-  width: ${(props) => (props.width ? props.width : "auto")};
-  height: ${(props) => (props.height ? props.height : "auto")};
-  background: ${(props) => props.bg};
-  gap: ${(props) => props.gap};
-  padding: ${(props) => props.p};
-  margin: ${(props) => props.m};
-`;
-
 export const SoForm = styled.form`
-  display: ${(props) => props.display};
-  flex-direction: ${(props) => props.dir};
-  justify-content: ${(props) => props.jc};
-  align-items: ${(props) => props.ai};
   width: ${(props) => (props.width ? props.width : "auto")};
   height: ${(props) => (props.height ? props.height : "auto")};
-  background: ${(props) => props.bg};
-  gap: ${(props) => props.gap};
-  padding: ${(props) => props.p};
-  margin: ${(props) => props.m};
 `;
 
-export const SoHeading = SiloComponent(styled.h1`
+export const SoTitle = SiloComponent(styled.h1`
   font-family: Silo;
-  font-size: 10rem;
-  letter-spacing: 50px;
+  font-size: ${(props) => props.fs ? props.fs : '2.5rem'};  
+  text-align: center;
+  letter-spacing: ${(props) => props.ls ? props.ls : '20px'};
   color: ${(props) => props.palette.text.main};
 
 
   @media screen and (max-width: 960px) {
-    font-size: 5rem;
+    font-size: 2.5rem;
     letter-spacing: 30px;
     text-align: center;
     margin-left: 30px;
   }
 `);
 
-export const SoTitle = SiloComponent(styled.h1`
-  font-family: Silo;
-  font-size: 2.5rem;
-  text-align: center;
-  letter-spacing: 10px;
-  color: ${(props) => props.palette.text.main};
-`);
 
 export const SoSubTitle = SiloComponent(styled.h1`
   font-family: AquireLight;
@@ -142,12 +106,10 @@ export const SoSubTitle = SiloComponent(styled.h1`
 `);
 
 
-export const SoDiv = styled.div`
-  display: block;
-`;
 
-export const SoTypography = SiloComponent(styled.p`
+export const SoTypography = SiloComponent(styled.span`
   font-size: ${(props) => (props.fs ? props.fs : "100%")};
+  font-weight: ${(props) => (props.fw ? props.fw : "normal")};
   letter-spacing: 1px;
   font-family: ${(props) => (props.fm ? props.fm : `"Quicksand", sans-serif`)};
   padding: ${(props) => props.p};
@@ -156,8 +118,11 @@ export const SoTypography = SiloComponent(styled.p`
 `);
 
 
-export const SoSpan = styled.span`
-  padding: ${(props) => props.p};
-  margin: ${(props) => props.m};
-  color: ${(props) => props.color}
-`;
+export const SoCard = SiloComponent(styled.div`
+  width: ${(props) => props.width ? props.width : '400px'};
+  height: ${(props) => props.width ? props.width : '400px'};
+  padding: ${(props) => props.p ? props.p :'auto'};
+  margin: ${(props) => props.m ? props.m :'auto'};
+  border-radius: ${(props) => props.br? props.br:'8px'};
+  box-shadow: ${(props) => props.bs ? props.bs : `${props.palette.shadow.sub} 0px 25px 50px -12px`};
+`);

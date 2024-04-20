@@ -2,7 +2,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
-import { useThemeContext } from "../ThemeProvider";
+import { useThemeContext } from "../ThemeProvider/ThemeProvider";
 
 const mapStateToProps = (state) => ({
     mode: state.silo.mode,
@@ -29,7 +29,7 @@ const StyledButton = SiloComponent(styled.button`
   transition: all 0.3s ease;
   font-weight: 500;
   padding: 10px 20px;
-  width: auto;
+  width: ${(props) => props.width ? props.width : '100%'};
   border-radius: 5px;
 
   &:hover {

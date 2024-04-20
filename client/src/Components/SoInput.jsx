@@ -2,7 +2,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
-import { useThemeContext } from "../ThemeProvider";
+import { useThemeContext } from "../ThemeProvider/ThemeProvider";
 
 const mapStateToProps = (state) => ({
     mode: state.silo.mode,
@@ -29,6 +29,7 @@ const StyledInput = SiloComponent(styled.input`
   border: 2.5px solid ${(props) => (props.err ? props.palette.error.main : props.palette.text.mid)};
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
   transition: all 0.3s ease;
+  width: 100%;
 
   &::placeholder {
   color: ${(props) => props.palette.placeholder.main};

@@ -4,8 +4,8 @@ import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import SoButton from "../Components/SoButton";
-import { useThemeContext } from "../ThemeProvider";
-import { SoHeading, SoSubTitle } from "../globalStyles";
+import { SoContainer, SoFlex, SoSubTitle, SoTitle } from "../StyledComponent/globalStyles";
+import { useThemeContext } from "../ThemeProvider/ThemeProvider";
 
 
 
@@ -16,22 +16,21 @@ const LandingPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div
-      className="home-page"
-      style={{ background: palette.background.high }}
-    >
-      <SoHeading style={{ color: palette.text.main }}>
+    <SoContainer>
+    <SoFlex dir='column' height='100%'>
+      <SoTitle fs='10rem' ls='50px'>
         SILO
-      </SoHeading>
+      </SoTitle>
       <SoSubTitle
-        className="home-description pb-7"
+        className="pb-7"
       >
         The Truth Will Surface
       </SoSubTitle>
-      <SoButton onClick={()=> navigate('/join')}>
+      <SoButton width='auto' onClick={()=> navigate('/join')}>
         Join
       </SoButton>
-    </div>
+      </SoFlex>
+    </SoContainer>
   );
 };
 

@@ -1,9 +1,9 @@
 import React, { useEffect, useMemo } from 'react';
-import { SoCenterContainer, SoTypography } from '../globalStyles';
+import { SoCard, SoContainer, SoFlex, SoTypography } from '../StyledComponent/globalStyles';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
-import { useThemeContext } from '../ThemeProvider';
+import { useThemeContext } from '../ThemeProvider/ThemeProvider';
 
 const HomePage = () => {
 
@@ -25,11 +25,20 @@ const HomePage = () => {
   return (
     <div style={{background:palette.background.high }}>
 
-    <SoCenterContainer>
-        <SoTypography fs="50px" fm="Silo">
+    <SoContainer>
+      <SoFlex dir='column' gap='50px' height='100vh'>
+        <SoTypography fs="50px">
             Home
         </SoTypography>
-    </SoCenterContainer>
+
+        <SoFlex className='pb-10' gap='40px'>
+          <SoCard></SoCard>
+          <SoCard></SoCard>
+          <SoCard></SoCard>
+
+        </SoFlex>
+        </SoFlex>
+    </SoContainer>
     </div>
   );
 }

@@ -5,11 +5,12 @@ import { CssBaseline } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
-import { themeSettings } from "./theme";
 import JoinPage from "./Pages/JoinPage";
 import LandingPage from "./Pages/LandingPage";
 import HomePage from "./Pages/HomePage";
-import { ThemeProvider, useThemeContext } from "./ThemeProvider";
+import {ThemeProvider} from "./ThemeProvider/ThemeProvider";
+import {themeSettings} from "./ThemeProvider/theme";
+import { SoContainer } from "./StyledComponent/globalStyles";
 
 const App = () => {
   const mode = useSelector((state) => state.silo.mode);
@@ -19,6 +20,7 @@ const App = () => {
   return (
     <BrowserRouter>
        <ThemeProvider theme={theme}>
+       <SoContainer>
         <Routes>
 
           <Route path="/" element={<LandingPage />} />
@@ -26,6 +28,7 @@ const App = () => {
           <Route path="/home" element={<HomePage />} />
        
         </Routes>
+        </SoContainer>
       </ThemeProvider>
     </BrowserRouter>
   );
