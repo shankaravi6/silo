@@ -20,8 +20,8 @@ const SiloComponent = (StyledComponent) => {
 };
 
 export const SoContainer = SiloComponent(styled.div`
-  width: 100%;
-  height: 100vh;
+   width: ${(props) => props.width  ? props.width :'100%'};
+  height: ${(props) => props.height ? props.height :'100vh'};
   padding: ${(props) => props.p};
   margin: ${(props) => props.m};
   background-color: ${(props) => props.bg ? props.bg : props.palette.background.high};
@@ -33,7 +33,7 @@ export const SoFlex = SiloComponent(styled.div`
   gap: ${(props) => props.gap};
   padding: ${(props) => props.p};
   margin: ${(props) => props.m};
-  width: ${(props) => props.width};
+  width: ${(props) => props.width  ? props.width :'auto'};
   height: ${(props) => props.height ? props.height :'auto'};
   justify-content: ${(props) => (props.jc ? props.jc : "center")};
   align-items: ${(props) => props.ai ? props.ai : "center"};
@@ -45,6 +45,8 @@ export const SoFlex = SiloComponent(styled.div`
     flex-direction: column;
     justify-content:center;
     align-items: center;
+    width: ${(props) => (props.sw ? props.sw : "100%")};
+    height: ${(props) => (props.sh ? props.sh : "auto")};
   }
 `);
 
@@ -114,13 +116,13 @@ export const SoTypography = SiloComponent(styled.span`
   font-family: ${(props) => (props.fm ? props.fm : `"Quicksand", sans-serif`)};
   padding: ${(props) => props.p};
   margin: ${(props) => props.m};
-  color: ${(props) => props.palette.text.main};
+  color: ${(props) => props.color ? props.color :props.palette.text.main};
 `);
 
 
 export const SoCard = SiloComponent(styled.div`
-  width: ${(props) => props.width ? props.width : '400px'};
-  height: ${(props) => props.width ? props.width : '400px'};
+  width: ${(props) => props.width ? props.width : '450px'};
+  height: ${(props) => props.width ? props.width : '450px'};
   padding: ${(props) => props.p ? props.p :'auto'};
   margin: ${(props) => props.m ? props.m :'auto'};
   border-radius: ${(props) => props.br? props.br:'8px'};

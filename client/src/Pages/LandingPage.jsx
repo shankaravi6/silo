@@ -17,7 +17,7 @@ const LandingPage = () => {
 
   return (
     <SoContainer>
-    <SoFlex dir='column' height='100%'>
+    <SoFlex dir='column' height='100%' sh='100vh'>
       <SoTitle fs='10rem' ls='50px'>
         SILO
       </SoTitle>

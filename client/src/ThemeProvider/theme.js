@@ -51,7 +51,7 @@ export const themeSettings = (mode) => {
               high: colorTokens.drops[300],
             },
             background: {
-              high: colorTokens.drops[300],
+              high: colorTokens.drops[100],
               mid: colorTokens.drops[900],
               low: colorTokens.drops[700],
             },

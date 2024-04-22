@@ -7,6 +7,8 @@ import { setAlert } from '../State';
 const SoAlert = () => {
   const alert = useSelector((state) => state.silo.alert)
   const dispatch = useDispatch();
+  const mode = useSelector((state) => state.silo.mode);
+
 
   useEffect(() => {
     alert
@@ -25,7 +27,7 @@ const SoAlert = () => {
       autoHideDuration={3000}
       onClose={handleClose}
     >
-      <Alert onClose={handleClose} severity={severity} variant='filled'>
+      <Alert onClose={handleClose} severity={severity} variant={mode == 'dark' ? 'standard' : 'filled'}>
         {alert.msg}
       </Alert>
     </Snackbar>
