@@ -8,12 +8,15 @@
 // export default router;
 
 
-import { getEntry, userLogin, userRegister } from '../controllers/userController.js';
+import { getEntry, testRequest, userLogin, userRegister } from '../controllers/userController.js';
+import { verifyToken } from '../middleware/auth.js';
 
 const userRoute = async (app, opts) => {
   app.get('/getEntry', getEntry);
-  app.post('/register', userRegister)
-  app.post('/login', userLogin)
+  app.post('/register', userRegister);
+  app.post('/login', userLogin);
+  app.post('/test',{ preHandler: verifyToken }, testRequest);
+
 };
 
 export default userRoute;

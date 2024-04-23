@@ -15,6 +15,10 @@ import { useThemeContext } from "../ThemeProvider/ThemeProvider";
 import NewsImg from "../assets/images/news.jpeg"
 import ShoppingImg from "../assets/images/shopping.jpeg"
 import RoomImg from "../assets/images/rooms.jpeg"
+import SoButton from "../Components/SoButton";
+import { makeApiCall } from "../Functions/ApiCall";
+import { encryptReq } from "../Functions/EncryptionReq";
+import { decryptReq } from "../Functions/DecryptionReq";
 
 
 const HomePage = () => {
@@ -32,13 +36,24 @@ const HomePage = () => {
 
   const { palette } = useThemeContext();
 
+  const testApi = async () => {
+    const values ={id:'123', name:'shankar'}
+
+    const res = await makeApiCall("/user/test",
+    "POST",
+    values)
+
+    console.log("defin",res)
+  } 
+
   return (
     <div style={{ background: palette.background.high }}>
       <SoContainer>
         <SoFlex height="100vh" dir="column" gap="50px">
           <SoFlex dir="column">
             <SoSubTitle fs="50px" className='pb-2'>Welcome to silo world!</SoSubTitle>
-            <SoTypography fs="24px" color={palette.text.low}>Explore the our features</SoTypography>
+            <SoTypography fs="24px" className='pb-5' color={palette.text.low}>Explore the our features</SoTypography>
+            <SoButton width='auto' onClick={() => testApi()}>Test Api</SoButton>
           </SoFlex>
           <SoFlex dir="column" gap="50px" height="auto">
             <SoFlex className="pb-10" gap="40px">

@@ -19,6 +19,8 @@
     "@reduxjs/toolkit": "^2.0.1",
     "@stylexjs/stylex": "^0.4.1",
     "axios": "^1.6.7",
+    "crypto": "^1.0.1",
+    "crypto-js": "^4.2.0",
     "formik": "^2.4.5",
     "jwt-decode": "^4.0.0",
     "react": "^18.2.0",

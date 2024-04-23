@@ -91,6 +91,7 @@ const LoginForm = ({ type }) => {
         //   setAlert({ open: true, msg: loginResponse.desc, type: "success" })
         // );
         dispatch(setLoginResponse(loginResponse));
+        localStorage.setItem("token", loginResponse.jwtToken)
         navigate("/home");
       } else
         dispatch(
