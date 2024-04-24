@@ -13,6 +13,8 @@ import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LoginForm from "../Forms/LoginForm";
 import SoAlert from "../Components/SoAlert";
 import { useThemeContext } from "../ThemeProvider/ThemeProvider";
+import loginImg from "../assets/images/login.jpeg";
+import registerImg from "../assets/images/register.jpeg";
 
 const JoinPage = () => {
   const { palette } = useThemeContext();
@@ -47,8 +49,8 @@ const JoinPage = () => {
               id="img"
               src={
                 type === "login"
-                  ? "https://th.bing.com/th/id/OIG2.A2pzrcdUuqsUa66NALCa?pid=ImgGn"
-                  : "https://th.bing.com/th/id/OIG4.HbcvRT0w16kK632OnVRB?pid=ImgGn"
+                  ? loginImg
+                  : registerImg
               }
               alt="login_img"
               className={fadeIn ? "fadeIn" : ""}

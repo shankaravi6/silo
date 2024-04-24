@@ -24,7 +24,7 @@ const SoAlert = () => {
     <Snackbar
       anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
       open={alert.open}
-      autoHideDuration={3000}
+      autoHideDuration={1000}
       onClose={handleClose}
     >
       <Alert onClose={handleClose} severity={severity} variant={mode == 'dark' ? 'standard' : 'filled'}>

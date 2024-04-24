@@ -32,7 +32,7 @@ const LoginForm = ({ type }) => {
 
   const {palette} = useThemeContext()
 
-  const handleGoogleLogin = (response) => {
+  const handleGoogleLogin = (response, setFieldValue) => {
     var data = jwtDecode(response.credential);
     console.log(data);
     const { email_verified, given_name, family_name, email } = data;
@@ -44,10 +44,17 @@ const LoginForm = ({ type }) => {
       email_verified,
     };
     console.log("Google data", values);
-    handleFormSubmit(values);
+    if (type === "register") {
+    setFieldValue('firstName', given_name);
+    setFieldValue('lastName', family_name);
+    setFieldValue('email', email);
+    } else {
+      handleFormSubmit(values);
+    }
+    
   };
 
-  const handleFacebookLogin = (response) => {
+  const handleFacebookLogin = (response,setFieldValue) => {
     console.log(response);
     const { first_name, last_name, email, graphDomain } = response;
     const values = {
@@ -58,7 +65,15 @@ const LoginForm = ({ type }) => {
       graphDomain,
     };
     console.log("Facebook data", values);
-    handleFormSubmit(values);
+    if (type === "register") {
+    setFieldValue('firstName', first_name);
+    setFieldValue('lastName', last_name);
+    setFieldValue('email', email);
+    } else {
+      handleFormSubmit(values);
+    }
+
+
   };
 
   const handleFormSubmit = async (values, onSubmitProps) => {
@@ -259,7 +274,7 @@ const LoginForm = ({ type }) => {
             <SoFlex bs='unset' jc="center" ai="center" gap="15px" p="10px 0">
               <GoogleOAuthProvider clientId="371665581818-tgjhvkqgp2ijcln872qr22rgj3hf274u.apps.googleusercontent.com">
                 <GoogleLogin
-                  onSuccess={(response) => handleGoogleLogin(response)}
+                  onSuccess={(response) => handleGoogleLogin(response, setFieldValue)}
                   onError={() => console.log("Error")}
                   clientId="371665581818-tgjhvkqgp2ijcln872qr22rgj3hf274u.apps.googleusercontent.com"
                   scopes={[
@@ -272,7 +287,7 @@ const LoginForm = ({ type }) => {
               </GoogleOAuthProvider>
               <LoginSocialFacebook
                 appId="1100784461270320"
-                onResolve={(response) => handleFacebookLogin(response.data)}
+                onResolve={(response) => handleFacebookLogin(response.data, setFieldValue)}
                 onReject={(error) => console.log(error)}
               >
                 <FacebookLoginButton className="fb-log"

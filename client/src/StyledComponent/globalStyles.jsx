@@ -48,6 +48,14 @@ export const SoFlex = SiloComponent(styled.div`
     width: ${(props) => (props.sw ? props.sw : "100%")};
     height: ${(props) => (props.sh ? props.sh : "auto")};
   }
+
+  @media screen and (min-width: 970px) and (max-width: 1380px) {
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    width: ${(props) => (props.mw ? props.mw : "100%")};
+    height: ${(props) => (props.mh ? props.mh : "auto")};
+  }
 `);
 
 export const SoGrid = styled.div`

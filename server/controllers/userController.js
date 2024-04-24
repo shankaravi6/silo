@@ -30,7 +30,9 @@ export const userRegister = async (request, replay) => {
         })
 
         const existUser = await User.findOne({email: email})
-        if(existUser) return replay.status(200).send({message: "error", desc: "User Id already exists"}) 
+        const valerr= {message: "error", desc: "User Id already exists"}
+        const encryerror = encryptReq(valerr);
+        if(existUser) return replay.status(200).send({data:encryerror}) 
         const registerData = await setRegisterData.save();
         const encrydata = encryptReq({message:"success",desc: "Register successfully", data:registerData});
 
@@ -45,11 +47,21 @@ export const userLogin = async (request, reply) => {
     const decrydata = decryptReq(request.body.data);
     const {email, password} = decrydata;
     try {
-        const user = await User.findOne({email: email})
-        if(!user) return reply.status(200).send({message:"error", desc:"User not found"})
 
-        const passMatch = await bcrypt.compare(password, user.password)
-        if(!passMatch) return reply.status(200).send({message:"error", desc:"Invalid EmailId Or Password"})
+        const user = await User.findOne({email: email})
+        const valerr = {message:"error", desc:"User not found"}
+        const encryerror = encryptReq(valerr);
+        if(!user) return reply.status(200).send({data:encryerror})
+
+        if(password != "") {
+            const passMatch = await bcrypt.compare(password, user.password)
+            const valpasserr = {message:"error", desc:"Invalid EmailId Or Password"}
+            const encryerrorpass = encryptReq(valpasserr);
+            if(!passMatch) return reply.status(200).send({data:encryerrorpass})
+        }
+      
+
+       
 
         const jwtToken = jwt.sign({id:user._id}, process.env.JWTSECRET)
         delete user.password
