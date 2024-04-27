@@ -159,7 +159,7 @@ const LoginForm = ({ type }) => {
 
   return (
     <SoFlex display="flex" jc="center" dir="column" width="100%">
-      <SoTitle ls='20px'>{type == "login" ? "Login" : "Register"}</SoTitle>
+      <SoTitle ls='20px' fs='clamp(1.5rem, 5vw, 2.5rem)'>{type == "login" ? "Login" : "Register"}</SoTitle>
       <Formik
         onSubmit={handleFormSubmit}
         initialValues={
@@ -193,11 +193,11 @@ const LoginForm = ({ type }) => {
               dir="column"
               gap="15px"
               width="100%"
-              p="15px 50px 25px 50px">
+              padding="15px 50px 25px 50px">
               {type == "login" ? (
                 <></>
               ) : (
-                <SoFlex width="100%" gap="15px">
+                <SoFlex dir='row' width="100%" gap="15px">
                   <SoInput
                     placeholder="First Name"
                     onBlur={handleBlur}
@@ -257,21 +257,21 @@ const LoginForm = ({ type }) => {
               </SoFlex>
             </SoForm>
 
-            <SoTypography style={{ textAlign: "center" }}>
+            <SoTypography fs='clamp(1rem, 5vw, 1.1rem)' style={{ textAlign: "center" }}>
               {type == "login"
                 ? "Don't have an account? "
                 : "Already have an account? "}
-              <SoTypography
+              <SoTypography fs='clamp(1rem, 5vw, 1.1rem)'
                 className='underline cursor-pointer'
                 onClick={() => dispatch(setType())}
               >
                 {type == "login" ? "Register" : "Login"}
               </SoTypography>
             </SoTypography>
-            <SoTypography style={{ textAlign: "center"}} p="10px 0 0 0">
+            <SoTypography style={{ textAlign: "center"}} fs='clamp(1rem, 5vw, 1.1rem)' padding="10px 0 0 0">
               Or
             </SoTypography>
-            <SoFlex bs='unset' jc="center" ai="center" gap="15px" p="10px 0">
+            <SoFlex bs='unset' dir='row' jc="center" ai="center" gap="15px" padding="10px 0">
               <GoogleOAuthProvider clientId="371665581818-tgjhvkqgp2ijcln872qr22rgj3hf274u.apps.googleusercontent.com">
                 <GoogleLogin
                   onSuccess={(response) => handleGoogleLogin(response, setFieldValue)}
