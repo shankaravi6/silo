@@ -34,16 +34,16 @@ export const SoSection = SiloComponent(styled.section`
   max-width: 1300px;
   margin-right: auto;
   margin-left: auto;
-  padding: ${({ padding }) => (padding ? padding : "unset")};
+  padding: ${(props) => (props.p ? props.p : "unset")};
   @media screen and (max-width: 970px) {
-    padding: ${({ smPadding }) => (smPadding ? smPadding : "unset")};
+    padding: ${(props) => (props.sp ? props.sp : "unset")};
     height: ${(props) => (props.sh ? props.sh : "unset")};
   }
 `);
 
 export const SoCover = SiloComponent(styled.div`
-  width: ${(props) => (props.width ? props.width : "unset")};
-  height: ${(props) => (props.height ? props.height : "unset")};
+  width: ${(props) => (props.w ? props.w : "unset")};
+  height: ${(props) => (props.h ? props.h : "unset")};
   box-shadow: ${(props) => (props.bs ? props.bs : "unset")};
 `);
 
@@ -52,10 +52,10 @@ export const SoFlex = SiloComponent(styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: ${(props) => (props.dir ? props.dir : "row")};
-  width: ${(props) => (props.width ? props.width : "unset")};
-  height: ${(props) => (props.height ? props.height : "unset")};
-  padding: ${({ padding }) => (padding ? padding : "unset")};
-  margin: ${({ margin }) => (margin ? margin : "unset")};
+  width: ${(props) => (props.w ? props.w : "unset")};
+  height: ${(props) => (props.h ? props.h : "unset")};
+  padding: ${(props) => (props.p ? props.p : "unset")};
+  margin: ${(props) => (props.m ? props.m : "unset")};
   gap: ${({ gap }) => (gap ? gap : "unset")};
   box-shadow: ${(props) => (props.bs ? props.bs : "unset")};
   background-color: ${(props) =>
@@ -68,11 +68,11 @@ export const SoFlex = SiloComponent(styled.div`
 
 export const SoBox = styled.div`
   display: ${(props) => (props.display ? props.display : "flex")};
-  width: ${(props) => (props.width ? props.width : "auto")};
-  height: ${(props) => (props.height ? props.height : "auto")};
-  background: ${(props) => props.bg};
-  padding: ${({ padding }) => (padding ? padding : "unset")};
-  margin: ${({ margin }) => (margin ? margin : "unset")};
+  width: ${(props) => (props.w ? props.w : "auto")};
+  height: ${(props) => (props.h ? props.h : "auto")};
+  background: ${(props) => props.bg ? props.bg : 'unset'};
+  padding: ${(props) => (props.p ? props.p : "unset")};
+  margin: ${(props) => (props.m ? props.m : "unset")};
   box-shadow: ${(props) => (props.bs ? props.bs : "unset")};
 
   @media screen and (max-width: 970px) {
@@ -84,14 +84,13 @@ export const SoBox = styled.div`
 `;
 
 export const SoCard = SiloComponent(styled.div`
-  width: ${(props) => (props.width ? props.width : "350px")};
-  height: ${(props) => (props.width ? props.width : "350px")};
+  width: ${(props) => (props.w ? props.w : "350px")};
+  height: ${(props) => (props.h ? props.h : "350px")};
   padding: ${(props) => (props.p ? props.p : "auto")};
   margin: ${(props) => (props.m ? props.m : "auto")};
   border-radius: ${(props) => (props.br ? props.br : "8px")};
   box-shadow: ${(props) =>
     props.bs ? props.bs : `${props.palette.shadow.sub} 0px 25px 50px -12px`};
-
   @media screen and (max-width: 960px) {
     width: ${(props) => (props.sw ? props.sw : "300px")};
     height: ${(props) => (props.sh ? props.sh : "300px")};
@@ -103,8 +102,8 @@ export const SoImg = styled.img`
 `;
 
 export const SoForm = styled.form`
-  width: ${(props) => (props.width ? props.width : "100%")};
-  height: ${(props) => (props.height ? props.height : "auto")};
+  width: ${(props) => (props.w ? props.w : "100%")};
+  height: ${(props) => (props.h ? props.h : "auto")};
 `;
 
 export const SoTitle = SiloComponent(styled.h1`

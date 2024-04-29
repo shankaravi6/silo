@@ -41,8 +41,8 @@ const JoinPage = () => {
 
       <SoFlex>
        <SoBox
-                width="600px"
-                height="600px"
+                w="600px"
+                h="600px"
                 sdisplay="none"
                 style={{
                   transition: "all 2s ease",
@@ -62,8 +62,8 @@ const JoinPage = () => {
                 />
               </SoBox>
               <SoBox
-                width="600px"
-                height="600px"
+                w="600px"
+                h="600px"
                 sw="100vw"
                 sh="100vh"
                 className="relative"

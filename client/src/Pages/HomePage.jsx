@@ -46,8 +46,8 @@ const HomePage = () => {
 
   return (
     <SoContainer className="flex justify-center items-center">
-      <SoSection padding='50px' sh='100vh' id="join">
-        <SoFlex dir="column" padding="0 0 20px 0">
+      <SoSection p='50px' sh='100vh' id="join">
+        <SoFlex dir="column" p="0 0 20px 0">
           <SoSubTitle fs="50px" className="pb-2">
             Welcome to silo world!
           </SoSubTitle>
@@ -58,11 +58,11 @@ const HomePage = () => {
             Test Api
           </SoButton>
         </SoFlex>
-        <SoFlex gap='35px' margin='20px 0 0 0'>
+        <SoFlex gap='35px' m='20px 0 0 0'>
           <SoCard p='15px'>
             <SoFlex dir='column' >
               <SoTypography fw='500' className='pb-5'>News &  Blog</SoTypography>
-              <SoBox sw='200px' sh='200px' width='250px' hight='250px'>
+              <SoBox sw='200px' sh='200px' w='250px' h='250px'>
               <SoImg src={NewsImg} />
               </SoBox>
             </SoFlex>
@@ -70,7 +70,7 @@ const HomePage = () => {
           <SoCard p='15px'>
             <SoFlex dir='column' >
               <SoTypography fw='500' className='pb-5'>Shopping</SoTypography>
-              <SoBox sw='200px' sh='200px' width='250px' hight='250px'>
+              <SoBox sw='200px' sh='200px' w='250px' h='250px'>
               <SoImg src={ShoppingImg} />
               </SoBox>
             </SoFlex>
@@ -78,7 +78,7 @@ const HomePage = () => {
           <SoCard p='15px'>
             <SoFlex dir='column' >
               <SoTypography fw='500' className='pb-5'>Hotels</SoTypography>
-              <SoBox sw='200px' sh='200px' width='250px' hight='250px'>
+              <SoBox sw='200px' sh='200px' w='250px' h='250px'>
               <SoImg src={RoomImg} />
               </SoBox>
             </SoFlex>
@@ -86,41 +86,6 @@ const HomePage = () => {
         </SoFlex>
       </SoSection>
     </SoContainer>
-    // <SoContainer display='block'>
-    // <SoFlex dir="column" width="100%">
-    //         <SoSubTitle fs="50px" className='pb-2'>Welcome to silo world!</SoSubTitle>
-    //          <SoTypography fs="24px" className='pb-5' color={palette.text.low}>Explore the our features</SoTypography>
-    //          <SoButton width='auto' onClick={() => testApi()}>Test Api</SoButton>
-    //        </SoFlex>
-
-    // <SoFlex width='100%' height='unset' >
-    // <SoCard p='20px'>
-    //            <SoFlex dir='column'>
-    //             <SoTypography fs='25px' fw='500' className='pb-5'>News &  Blog</SoTypography>
-    //             <SoBox width="325px" height='325px'>
-    //                <SoImg src={NewsImg} />
-    //                </SoBox>
-    //              </SoFlex>
-    //            </SoCard>
-    //            <SoCard p='20px'>
-    //              <SoFlex dir='column'>
-    //              <SoTypography fs='25px' fw='500' className='pb-5'>Shopping</SoTypography>
-    //              <SoBox width="325px" height='325px'>
-    //                <SoImg src={ShoppingImg} />
-    //                </SoBox>
-    //              </SoFlex>
-    //            </SoCard>
-    //            <SoCard p='20px'>
-    //              <SoFlex dir='column'>
-    //              <SoTypography fs='25px' fw='500' className='pb-5'>Hotels</SoTypography>
-    //              <SoBox width="325px" height='325px'>
-    //                <SoImg src={RoomImg} />
-    //                </SoBox>
-    //              </SoFlex>
-    //            </SoCard>
-    // </SoFlex>
-
-    // </SoContainer>
   );
 };
 

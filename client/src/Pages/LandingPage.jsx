@@ -33,21 +33,6 @@ const LandingPage = () => {
        </SoFlex>
       </SoSection>
     </SoContainer>
-    // <SoContainer>
-    // <SoFlex dir='column' height='100vh' sh='100vh'>
-    //   <SoTitle fs='10rem' ls='50px'>
-    //     SILO
-    //   </SoTitle>
-    //   <SoSubTitle
-    //     className="pb-7"
-    //   >
-    //     The Truth Will Surface
-    //   </SoSubTitle>
-    //   <SoButton width='auto' onClick={()=> navigate('/join')}>
-    //     Join
-    //   </SoButton>
-    //   </SoFlex>
-    // </SoContainer>
   );
 };
 

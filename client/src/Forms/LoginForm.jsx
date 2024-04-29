@@ -158,7 +158,7 @@ const LoginForm = ({ type }) => {
   };
 
   return (
-    <SoFlex display="flex" jc="center" dir="column" width="100%">
+    <SoFlex display="flex" dir="column" w="100%">
       <SoTitle ls='20px' fs='clamp(1.5rem, 5vw, 2.5rem)'>{type == "login" ? "Login" : "Register"}</SoTitle>
       <Formik
         onSubmit={handleFormSubmit}
@@ -185,19 +185,18 @@ const LoginForm = ({ type }) => {
         }) => (
           <>
             <SoForm
-            width="100%"
+            w="100%"
               onSubmit={handleSubmit}
             >
             <SoFlex 
-              jc="center"
               dir="column"
               gap="15px"
-              width="100%"
-              padding="15px 50px 25px 50px">
+              w="100%"
+              p="15px 50px 25px 50px">
               {type == "login" ? (
                 <></>
               ) : (
-                <SoFlex dir='row' width="100%" gap="15px">
+                <SoFlex dir='row' w="100%" gap="15px">
                   <SoInput
                     placeholder="First Name"
                     onBlur={handleBlur}
@@ -257,7 +256,7 @@ const LoginForm = ({ type }) => {
               </SoFlex>
             </SoForm>
 
-            <SoTypography fs='clamp(1rem, 5vw, 1.1rem)' style={{ textAlign: "center" }}>
+            <SoTypography fs='clamp(1rem, 5vw, 1.1rem)' className='text-center'>
               {type == "login"
                 ? "Don't have an account? "
                 : "Already have an account? "}
@@ -268,10 +267,10 @@ const LoginForm = ({ type }) => {
                 {type == "login" ? "Register" : "Login"}
               </SoTypography>
             </SoTypography>
-            <SoTypography style={{ textAlign: "center"}} fs='clamp(1rem, 5vw, 1.1rem)' padding="10px 0 0 0">
+            <SoTypography className='text-center' fs='clamp(1rem, 5vw, 1.1rem)' p="10px 0 0 0">
               Or
             </SoTypography>
-            <SoFlex bs='unset' dir='row' jc="center" ai="center" gap="15px" padding="10px 0">
+            <SoFlex bs='unset' gap="15px" padding="10px 0">
               <GoogleOAuthProvider clientId="371665581818-tgjhvkqgp2ijcln872qr22rgj3hf274u.apps.googleusercontent.com">
                 <GoogleLogin
                   onSuccess={(response) => handleGoogleLogin(response, setFieldValue)}
@@ -291,7 +290,7 @@ const LoginForm = ({ type }) => {
                 onReject={(error) => console.log(error)}
               >
                 <FacebookLoginButton className="fb-log"
-                  style={{ height: "37px", fontFamily: "Calibri", fontSize:"16px" }}
+                  style={{ height: "37px",fontSize:"16px" }}
                 />
               </LoginSocialFacebook>
             </SoFlex>
