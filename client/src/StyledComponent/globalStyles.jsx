@@ -60,6 +60,7 @@ export const SoFlex = SiloComponent(styled.div`
   box-shadow: ${(props) => (props.bs ? props.bs : "unset")};
   background-color: ${(props) =>
     props.bg ? props.bg : props.palette.background.high};
+  border-radius: ${(props) => (props.br ? props.br : "unset")};
 
   @media screen and (max-width: 970px) {
     flex-direction: column;
@@ -88,7 +89,7 @@ export const SoCard = SiloComponent(styled.div`
   height: ${(props) => (props.h ? props.h : "350px")};
   padding: ${(props) => (props.p ? props.p : "auto")};
   margin: ${(props) => (props.m ? props.m : "auto")};
-  border-radius: ${(props) => (props.br ? props.br : "8px")};
+  border-radius: ${(props) => (props.br ? props.br : "15px")};
   box-shadow: ${(props) =>
     props.bs ? props.bs : `${props.palette.shadow.sub} 0px 25px 50px -12px`};
   @media screen and (max-width: 960px) {
@@ -98,7 +99,10 @@ export const SoCard = SiloComponent(styled.div`
 `);
 
 export const SoImg = styled.img`
-  width: 100%;
+    width: ${(props) => (props.w ? props.w : "100%")};
+    @media screen and (max-width: 970px) {
+    width:unset;
+  }
 `;
 
 export const SoForm = styled.form`
@@ -125,7 +129,8 @@ export const SoSubTitle = SiloComponent(styled.h1`
   font-size: clamp(1rem, 5vw, 2.5rem);
   text-align: center;
   letter-spacing: 10px;
-  color: ${(props) => props.palette.text.main};
+  color: ${(props) => props.color ? props.color : props.palette.text.main};
+  text-shadow: ${(props) => props.ts ? props.ts : 'unset'};
 `);
 
 export const SoTypography = SiloComponent(styled.span`
@@ -136,4 +141,5 @@ export const SoTypography = SiloComponent(styled.span`
   padding: ${(props) => props.p};
   margin: ${(props) => props.m};
   color: ${(props) => (props.color ? props.color : props.palette.text.main)};
+  text-shadow: ${(props) => props.ts ? props.ts : 'unset'};
 `);
