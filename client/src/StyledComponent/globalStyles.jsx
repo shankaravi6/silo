@@ -31,9 +31,12 @@ export const SoContainer = SiloComponent(styled.div`
 
 export const SoSection = SiloComponent(styled.section`
   width: 100%;
-  max-width: 1300px;
+  height: ${(props) => props.h ? props.h : 'unset'};
+  max-width: ${(props) => props.mw ? props.mw : '1300px'};
   margin-right: auto;
   margin-left: auto;
+  background: ${(props) =>
+    props.bg ? props.bg : `${props.palette.background.high}`};
   padding: ${(props) => (props.p ? props.p : "unset")};
   @media screen and (max-width: 970px) {
     padding: ${(props) => (props.sp ? props.sp : "unset")};
@@ -45,6 +48,12 @@ export const SoCover = SiloComponent(styled.div`
   width: ${(props) => (props.w ? props.w : "unset")};
   height: ${(props) => (props.h ? props.h : "unset")};
   box-shadow: ${(props) => (props.bs ? props.bs : "unset")};
+  transform: ${(props) => props.tr ? props.tr : 'unset'};
+  background: ${(props) =>
+    props.bg ? props.bg : 'unset'};
+  padding: ${(props) => (props.p ? props.p : "unset")};
+  border-radius: ${(props) => (props.br ? props.br : "unset")};
+
 `);
 
 export const SoFlex = SiloComponent(styled.div`
@@ -90,6 +99,7 @@ export const SoCard = SiloComponent(styled.div`
   padding: ${(props) => (props.p ? props.p : "auto")};
   margin: ${(props) => (props.m ? props.m : "auto")};
   border-radius: ${(props) => (props.br ? props.br : "15px")};
+  background: ${(props) => props.bg ? props.bg : `${props.palette.background.high}`};
   box-shadow: ${(props) =>
     props.bs ? props.bs : `${props.palette.shadow.sub} 0px 25px 50px -12px`};
   @media screen and (max-width: 960px) {
@@ -100,6 +110,7 @@ export const SoCard = SiloComponent(styled.div`
 
 export const SoImg = styled.img`
     width: ${(props) => (props.w ? props.w : "100%")};
+    border-radius: ${(props) => (props.br ? props.br : "unset")};
     @media screen and (max-width: 970px) {
     width:unset;
   }
@@ -122,15 +133,36 @@ export const SoTitle = SiloComponent(styled.h1`
     text-align: center;
     margin-left: 30px;
   }
+
+  
+  /* &::before {
+    content: "";
+    display: inline-block;
+    height: 8px;
+    width: 100px;
+    background-color: ${(props) => props.palette.text.main};
+  }
+  
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 8px;
+    width: 100px;
+    background-color: ${(props) => props.palette.text.main};
+  } */
+
 `);
 
 export const SoSubTitle = SiloComponent(styled.h1`
   font-family: AquireLight;
-  font-size: clamp(1rem, 5vw, 2.5rem);
+  font-size:  ${(props) => props.fs ? props.fs : 'clamp(1rem, 5vw, 2.5rem)'};
   text-align: center;
-  letter-spacing: 10px;
+  letter-spacing: ${(props) => props.ls ? props.ls : '10px'};
   color: ${(props) => props.color ? props.color : props.palette.text.main};
   text-shadow: ${(props) => props.ts ? props.ts : 'unset'};
+  background: ${(props) => props.bg ? props.bg : 'unset'};
+  font-weight: ${(props) => props.fw ? props.fw : 'unset'};
+
 `);
 
 export const SoTypography = SiloComponent(styled.span`

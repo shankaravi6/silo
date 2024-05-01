@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 import {
   SoBox,
   SoCard,
@@ -8,6 +8,7 @@ import {
   SoImg,
   SoSection,
   SoSubTitle,
+  SoTitle,
   SoTypography,
 } from "../StyledComponent/globalStyles";
 import { useSelector } from "react-redux";
@@ -21,8 +22,10 @@ import SoButton from "../Components/SoButton";
 import { makeApiCall } from "../Functions/ApiCall";
 import { encryptReq } from "../Functions/EncryptionReq";
 import { decryptReq } from "../Functions/DecryptionReq";
-import HomeBack from "../assets/images/homeback.png";
+import HomeBack from "../assets/images/homeback.jpeg";
 import HomeOne from "../assets/images/homeone.png";
+import { colorTokens } from "../ThemeProvider/theme";
+import { Fade, JackInTheBox, Slide, Zoom } from "react-awesome-reveal";
 
 const HomePage = () => {
   const jwt = useSelector((state) => state.silo.loginResponse?.jwtToken);
@@ -53,61 +56,160 @@ const HomePage = () => {
         <SoCover h="100vh" className="wrapper">
           <SoCover h="100%" className="header">
             <SoImg className="background" src={HomeBack} />
-            <SoImg w="50%" className="foreground" src={HomeOne} />
-            <SoFlex bg='unset' dir="column" p="0 0 20px 0">
-              <SoSubTitle fs="50px" color='white' ts={`0 0 5px ${palette.text.main}`} className="pb-2">
+            <SoImg w="55%" className="foreground" src={HomeOne} />
+            <SoFlex bg="unset" dir="column" p="0 0 20px 0">
+              <Zoom triggerOnce>
+              <SoSubTitle
+                fs="clamp(2rem, 10vw, 4.5rem)"
+                fw="600"
+                color={palette.text.main}
+                className="pb-5"
+              >
                 Welcome to silo world!
               </SoSubTitle>
-              <SoTypography
-                fs="clamp(1rem, 5vw, 2rem)"
-                className="pb-5"
-                color={palette.text.low}
-                ts={`0 0 5px ${palette.text.low}`}
-              >
-                Explore the our features
-              </SoTypography>
+              </Zoom>
+              <Slide triggerOnce direction="up">
               <SoButton width="auto" onClick={() => testApi()}>
-                Test Api
+                Explore
               </SoButton>
+              </Slide>
             </SoFlex>
-            
           </SoCover>
-          <SoSection bg='unset' p="50px" sh="100vh" id="join">
-              <SoFlex bg='transparent' gap="35px" m="20px 0 0 0">
-                <SoCard p="0">
-                  <SoFlex br='15px' p='10px' dir="column">
-                    <SoTypography fw="500" className="pb-5">
-                      News & Blog
-                    </SoTypography>
-                    <SoBox sw="200px" sh="200px" w="250px" h="250px">
-                      <SoImg src={NewsImg} />
+          <SoSection
+            bg="unset"
+            p="50px 50px 70px 50px"
+            sh="100vh"
+            id="features"
+          >
+            <SoFlex bg="unset" gap="20px" m="20px 0 0 0">
+              <SoCard p="0">
+                <SoFlex p="15px 0 0 0" br="15px" dir="column">
+                  <Fade>
+                    <SoBox
+                      sw="270px"
+                      sh="270px"
+                      w="320px"
+                      h="320px"
+                      className="relative"
+                    >
+                      <SoImg br="7.5px" src={NewsImg} />
+                      <SoCover
+                        br="7.5px"
+                        bg="linear-gradient(1deg, #1c0c04, transparent)"
+                        w="100%"
+                        className="absolute bottom-0"
+                        p="75px 25px 25px 25px"
+                      >
+                        <SoFlex bg="unset" gap="10px" dir="column">
+                          <SoSubTitle
+                            ls="5px"
+                            fs="clamp(0.5rem, 10vw, 1.25rem)"
+                            className="text-nowrap"
+                            color={colorTokens.drops[300]}
+                          >
+                            News & Blog
+                          </SoSubTitle>
+                          <SoTypography
+                            color={colorTokens.drops[200]}
+                            fs="11px"
+                          >
+                            Lorem ipsum dolor sit amet consectetur adipiscing
+                            elit, auctor hendrerit commodo bibendum consequat
+                            suscipit, netus et ante vel a luctus.
+                          </SoTypography>
+                        </SoFlex>
+                      </SoCover>
                     </SoBox>
-                  </SoFlex>
-                </SoCard>
-                <SoCard p="0">
-                  <SoFlex br='15px' p='10px' dir="column">
-                    <SoTypography fw="500" className="pb-5">
-                      Shopping
-                    </SoTypography>
-                    <SoBox sw="200px" sh="200px" w="250px" h="250px">
-                      <SoImg src={ShoppingImg} />
+                  </Fade>
+                </SoFlex>
+              </SoCard>
+              <SoCard p="0">
+                <SoFlex p="15px 0 0 0" br="15px" dir="column">
+                  <Fade>
+                    <SoBox
+                      sw="270px"
+                      sh="270px"
+                      w="320px"
+                      h="320px"
+                      className="relative"
+                    >
+                      <SoImg br="7.5px" src={ShoppingImg} />
+                      <SoCover
+                        br="7.5px"
+                        bg="linear-gradient(1deg, #1c0c04, transparent)"
+                        w="100%"
+                        className="absolute bottom-0"
+                        p="75px 25px 25px 25px"
+                      >
+                        <SoFlex bg="unset" gap="10px" dir="column">
+                          <SoSubTitle
+                            ls="5px"
+                            fs="clamp(0.5rem, 10vw, 1.25rem)"
+                            className="text-nowrap"
+                            color={colorTokens.drops[300]}
+                          >
+                            Shopping
+                          </SoSubTitle>
+                          <SoTypography
+                            color={colorTokens.drops[200]}
+                            fs="11px"
+                          >
+                            Lorem ipsum dolor sit amet consectetur adipiscing
+                            elit, auctor hendrerit commodo bibendum consequat
+                            suscipit, netus et ante vel a luctus.
+                          </SoTypography>
+                        </SoFlex>
+                      </SoCover>
                     </SoBox>
-                  </SoFlex>
-                </SoCard>
-                <SoCard p="0">
-                  <SoFlex br='15px' p='10px' dir="column">
-                    <SoTypography fw="500" className="pb-5">
-                      Hotels
-                    </SoTypography>
-                    <SoBox sw="200px" sh="200px" w="250px" h="250px">
-                      <SoImg src={RoomImg} />
+                  </Fade>
+                </SoFlex>
+              </SoCard>
+              <SoCard p="0">
+                <SoFlex p="15px 0 0 0" br="15px" dir="column">
+                  <Fade>
+                    <SoBox
+                      sw="270px"
+                      sh="270px"
+                      w="320px"
+                      h="320px"
+                      className="relative"
+                    >
+                      <SoImg br="7.5px" src={RoomImg} />
+                      <SoCover
+                        br="7.5px"
+                        bg="linear-gradient(1deg, #1c0c04, transparent)"
+                        w="100%"
+                        className="absolute bottom-0"
+                        p="75px 25px 25px 25px"
+                      >
+                        <SoFlex bg="unset" gap="10px" dir="column">
+                          <SoSubTitle
+                            ls="5px"
+                            fs="clamp(0.5rem, 10vw, 1.25rem)"
+                            className="text-nowrap"
+                            color={colorTokens.drops[300]}
+                          >
+                            Hotels
+                          </SoSubTitle>
+                          <SoTypography
+                            color={colorTokens.drops[200]}
+                            fs="11px"
+                          >
+                            Lorem ipsum dolor sit amet consectetur adipiscing
+                            elit, auctor hendrerit commodo bibendum consequat
+                            suscipit, netus et ante vel a luctus.
+                          </SoTypography>
+                        </SoFlex>
+                      </SoCover>
                     </SoBox>
-                  </SoFlex>
-                </SoCard>
-              </SoFlex>
-            </SoSection>   
+                  </Fade>
+                </SoFlex>
+              </SoCard>
+            </SoFlex>
+          </SoSection>
+          {/* <SoSection p="50px" mw='unset' h='800px' sh="100vh" id="about">
+            </SoSection> */}
         </SoCover>
-        
       </SoContainer>
     </>
   );

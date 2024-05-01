@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.3",
+    "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.15.3",
     "@mui/material": "^5.15.3",
@@ -22,8 +22,10 @@
     "crypto": "^1.0.1",
     "crypto-js": "^4.2.0",
     "formik": "^2.4.5",
+    "gsap": "^3.12.5",
     "jwt-decode": "^4.0.0",
     "react": "^18.2.0",
+    "react-awesome-reveal": "^4.2.8",
     "react-dom": "^18.2.0",
     "react-redux": "^9.1.0",
     "react-router-dom": "^6.21.2",
