@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useRef } from "react";
 import {
+  SoBackImg,
   SoBox,
   SoCard,
   SoContainer,
@@ -10,21 +11,21 @@ import {
   SoSubTitle,
   SoTitle,
   SoTypography,
-} from "../StyledComponent/globalStyles";
+} from "../styledcomponents/globalStyles";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
-import { useThemeContext } from "../ThemeProvider/ThemeProvider";
+import { useThemeContext } from "../themeprovider/ThemeProvider";
 import NewsImg from "../assets/images/news.jpeg";
 import ShoppingImg from "../assets/images/shopping.jpeg";
 import RoomImg from "../assets/images/rooms.jpeg";
-import SoButton from "../Components/SoButton";
-import { makeApiCall } from "../Functions/ApiCall";
-import { encryptReq } from "../Functions/EncryptionReq";
-import { decryptReq } from "../Functions/DecryptionReq";
+import SoButton from "../components/SoButton";
+import { makeApiCall } from "../utils/ApiCall";
+import { encryptReq } from "../utils/EncryptionReq";
+import { decryptReq } from "../utils/DecryptionReq";
 import HomeBack from "../assets/images/homeback.jpeg";
 import HomeOne from "../assets/images/homeone.png";
-import { colorTokens } from "../ThemeProvider/theme";
+import { colorTokens } from "../themeprovider/theme";
 import { Fade, JackInTheBox, Slide, Zoom } from "react-awesome-reveal";
 
 const HomePage = () => {
@@ -55,7 +56,7 @@ const HomePage = () => {
       <SoContainer className="justify-center items-center">
         <SoCover h="100vh" className="wrapper">
           <SoCover h="100%" className="header">
-            <SoImg className="background" src={HomeBack} />
+            <SoBackImg className="background" url={HomeBack}/>
             <SoImg w="55%" className="foreground" src={HomeOne} />
             <SoFlex bg="unset" dir="column" p="0 0 20px 0">
               <Zoom triggerOnce>
@@ -83,6 +84,7 @@ const HomePage = () => {
           >
             <SoFlex bg="unset" gap="20px" m="20px 0 0 0">
               <SoCard p="0">
+              <Link to='/blog'>
                 <SoFlex p="15px 0 0 0" br="15px" dir="column">
                   <Fade>
                     <SoBox
@@ -110,7 +112,7 @@ const HomePage = () => {
                             News & Blog
                           </SoSubTitle>
                           <SoTypography
-                            color={colorTokens.drops[200]}
+                            color={colorTokens.drops[100]}
                             fs="11px"
                           >
                             Lorem ipsum dolor sit amet consectetur adipiscing
@@ -122,6 +124,7 @@ const HomePage = () => {
                     </SoBox>
                   </Fade>
                 </SoFlex>
+              </Link>
               </SoCard>
               <SoCard p="0">
                 <SoFlex p="15px 0 0 0" br="15px" dir="column">
@@ -151,7 +154,7 @@ const HomePage = () => {
                             Shopping
                           </SoSubTitle>
                           <SoTypography
-                            color={colorTokens.drops[200]}
+                            color={colorTokens.drops[100]}
                             fs="11px"
                           >
                             Lorem ipsum dolor sit amet consectetur adipiscing
@@ -192,7 +195,7 @@ const HomePage = () => {
                             Hotels
                           </SoSubTitle>
                           <SoTypography
-                            color={colorTokens.drops[200]}
+                            color={colorTokens.drops[100]}
                             fs="11px"
                           >
                             Lorem ipsum dolor sit amet consectetur adipiscing

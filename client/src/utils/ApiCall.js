@@ -1,4 +1,4 @@
-import baseURL from "../API/baseURL";
+import baseURL from "../services/baseURL";
 import axios from "axios";
 import { encryptReq } from "./EncryptionReq";
 import { decryptReq } from "./DecryptionReq";

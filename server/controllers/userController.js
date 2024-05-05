@@ -3,8 +3,8 @@ import Entry from '../models/entryModel.js';
 import User from '../models/userModel.js';
 import bcrypt from 'bcrypt';
 import jwt from "jsonwebtoken";
-import { decryptReq } from '../functions/decryptReq.js';
-import { encryptReq } from '../functions/encryptReq.js';
+import { decryptReq } from '../utils/decryptReq.js';
+import { encryptReq } from '../utils/encryptReq.js';
 
 
 export const getEntry = async (request, replay) => {

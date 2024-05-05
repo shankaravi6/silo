@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import { connect } from "react-redux";
 
 import React from "react";
-import { useThemeContext } from "../ThemeProvider/ThemeProvider.jsx";
+import { useThemeContext } from "../../themeprovider/ThemeProvider.jsx";
 
 const mapStateToProps = (state) => ({
   mode: state.silo.mode,
@@ -19,7 +19,16 @@ const SiloComponent = (StyledComponent) => {
   return ConnectedStyledComponent;
 };
 
-export const SoContainer = SiloComponent(styled.div`
+export const BlogStyle = createGlobalStyle`
+  *{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family:RoyalKevino;
+  }
+`;
+
+export const BlogContainer = SiloComponent(styled.div`
   width: 100%;
   height: 100vh;
   background: ${(props) =>
@@ -29,7 +38,7 @@ export const SoContainer = SiloComponent(styled.div`
   }
 `);
 
-export const SoSection = SiloComponent(styled.section`
+export const BlogSection = SiloComponent(styled.section`
   width: 100%;
   height: ${(props) => props.h ? props.h : 'unset'};
   max-width: ${(props) => props.mw ? props.mw : '1300px'};
@@ -44,7 +53,7 @@ export const SoSection = SiloComponent(styled.section`
   }
 `);
 
-export const SoCover = SiloComponent(styled.div`
+export const BlogCover = SiloComponent(styled.div`
   width: ${(props) => (props.w ? props.w : "unset")};
   height: ${(props) => (props.h ? props.h : "unset")};
   box-shadow: ${(props) => (props.bs ? props.bs : "unset")};
@@ -52,13 +61,14 @@ export const SoCover = SiloComponent(styled.div`
   background: ${(props) =>
     props.bg ? props.bg : 'unset'};
   padding: ${(props) => (props.p ? props.p : "unset")};
+  margin: ${(props) => (props.m ? props.m : "unset")};
   border-radius: ${(props) => (props.br ? props.br : "unset")};
 
 `);
 
-export const SoFlex = SiloComponent(styled.div`
+export const BlogFlex = SiloComponent(styled.div`
   display: flex;
-  align-items: center;
+  align-items: ${(props) => props.al ? props.al : 'center'};
   justify-content: center;
   flex-direction: ${(props) => (props.dir ? props.dir : "row")};
   width: ${(props) => (props.w ? props.w : "unset")};
@@ -72,11 +82,11 @@ export const SoFlex = SiloComponent(styled.div`
   border-radius: ${(props) => (props.br ? props.br : "unset")};
 
   @media screen and (max-width: 970px) {
-    flex-direction: column;
+    flex-direction: ${(props) => props.sd ? props.sd : 'column'};
   }
 `);
 
-export const SoBox = styled.div`
+export const BlogBox = styled.div`
   display: ${(props) => (props.display ? props.display : "flex")};
   width: ${(props) => (props.w ? props.w : "auto")};
   height: ${(props) => (props.h ? props.h : "auto")};
@@ -93,7 +103,7 @@ export const SoBox = styled.div`
   }
 `;
 
-export const SoCard = SiloComponent(styled.div`
+export const BlogCard = SiloComponent(styled.div`
   width: ${(props) => (props.w ? props.w : "350px")};
   height: ${(props) => (props.h ? props.h : "350px")};
   padding: ${(props) => (props.p ? props.p : "auto")};
@@ -108,7 +118,7 @@ export const SoCard = SiloComponent(styled.div`
   }
 `);
 
-export const SoImg = styled.img`
+export const BlogImg = styled.img`
     width: ${(props) => (props.w ? props.w : "100%")};
     border-radius: ${(props) => (props.br ? props.br : "unset")};
     @media screen and (max-width: 970px) {
@@ -116,22 +126,37 @@ export const SoImg = styled.img`
   }
 `;
 
-export const SoForm = styled.form`
+export const BlogBackImg = styled.div`
+    width: ${(props) => (props.w ? props.w : "100%")};
+    height: ${(props) => (props.h ? props.h : "100%")};
+    background: ${props => props.url ? `url(${props.url})` : 'none'};
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    @media screen and (max-width: 970px) {
+    width:unset;
+  }
+`;
+
+export const BlogForm = styled.form`
   width: ${(props) => (props.w ? props.w : "100%")};
   height: ${(props) => (props.h ? props.h : "auto")};
 `;
 
-export const SoTitle = SiloComponent(styled.h1`
-  font-family: Silo;
+export const BlogTitle = SiloComponent(styled.h1`
+  font-family: Royalkevino;
   font-size: ${(props) => (props.fs ? props.fs : "2.5rem")};
-  text-align: center;
-  letter-spacing: ${(props) => (props.ls ? props.ls : "20px")};
+  text-align: ${(props) => props.ta ? props.ta : 'center'};
+  letter-spacing: ${(props) => (props.ls ? props.ls : "0px")};
   color: ${(props) => props.palette.text.main};
+  width: ${(props) => props.w};
 
   @media screen and (max-width: 960px) {
-    letter-spacing: 30px;
+    letter-spacing: 0px;
     text-align: center;
-    margin-left: 30px;
+    margin-left: 0px;
+    width: unset;
+    position: unset;
   }
 
   
@@ -153,25 +178,48 @@ export const SoTitle = SiloComponent(styled.h1`
 
 `);
 
-export const SoSubTitle = SiloComponent(styled.h1`
-  font-family: AquireLight;
-  font-size:  ${(props) => props.fs ? props.fs : 'clamp(1rem, 5vw, 2.5rem)'};
-  text-align: center;
-  letter-spacing: ${(props) => props.ls ? props.ls : '10px'};
+export const BlogSubTitle = SiloComponent(styled.h1`
+  font-family: Ravigsfen;
+  font-size:  ${(props) => props.fs ? props.fs : '1.5rem'};
+  text-align: ${(props) => props.ta ? props.ta : 'center'};
+  letter-spacing: ${(props) => props.ls ? props.ls : '0px'};
   color: ${(props) => props.color ? props.color : props.palette.text.main};
   text-shadow: ${(props) => props.ts ? props.ts : 'unset'};
   background: ${(props) => props.bg ? props.bg : 'unset'};
   font-weight: ${(props) => props.fw ? props.fw : 'unset'};
+  width: ${(props) => (props.w ? props.w : "unset")};
+  height: ${(props) => (props.h ? props.h : "unset")};
 
+  @media screen and (max-width: 960px) {
+    width: unset;
+    padding: ${(props) => props.smp ? props.smp : 'unset'};
+  }
+
+  &::before {
+    content: "";
+    display: inline-block;
+    height: ${(props) => props.bh ? props.bh : '5px'};
+    width: ${(props) => props.bw ? props.bw : '100px'};
+    background-color: ${(props) => props.palette.text.main};
+  }
+  
+  /* &::after {
+    content: "";
+    display: inline-block;
+    height: 5px;
+    width: 100px;
+    background-color: ${(props) => props.palette.text.main};
+  } */
 `);
 
-export const SoTypography = SiloComponent(styled.span`
+export const BlogTypography = SiloComponent(styled.span`
   font-size: ${(props) => (props.fs ? props.fs : "clamp(1rem, 5vw, 1.5rem)")};
   font-weight: ${(props) => (props.fw ? props.fw : "normal")};
   letter-spacing: 1px;
-  font-family: ${(props) => (props.fm ? props.fm : `"Quicksand", sans-serif`)};
+  font-family: ${(props) => (props.fm ? props.fm : `Tiresias`)};
   padding: ${(props) => props.p};
   margin: ${(props) => props.m};
   color: ${(props) => (props.color ? props.color : props.palette.text.main)};
   text-shadow: ${(props) => props.ts ? props.ts : 'unset'};
 `);
+

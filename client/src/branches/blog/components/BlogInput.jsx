@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
-import { useThemeContext } from "../themeprovider/ThemeProvider";
+import { useThemeContext } from "../../../themeprovider/ThemeProvider";
+
 
 const mapStateToProps = (state) => ({
     mode: state.silo.mode,
@@ -22,7 +23,7 @@ const StyledInput = SiloComponent(styled.input`
   position: relative;
   padding: 7.5px 20px;
   width: ${(props) => (props.width ? props.width : "100%")};
-  border-radius: 5px;
+  border-radius: 0px;
   background-color: ${(props) => props.palette.background.high};
   color: ${(props) => props.palette.text.main};
   border: 2.5px solid ${(props) => (props.err ? props.palette.error.main : props.palette.text.mid)};
@@ -55,7 +56,7 @@ const HelperText = styled.span`
   color: ${(props) => (props.err ? "#FF5733" : "#FF5733")};
 `;
 
-const SoInput = ({ placeholder, width, onChange, name, value, err, helperText, type, style }) => {
+const BlogInput = ({ placeholder, width, onChange, name, value, err, helperText, type, style }) => {
   return (
     <span style={{width:"100%"}}>
       <StyledInput
@@ -73,4 +74,4 @@ const SoInput = ({ placeholder, width, onChange, name, value, err, helperText, t
   );
 };
 
-export default SoInput;
+export default BlogInput;

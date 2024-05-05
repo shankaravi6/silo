@@ -1,11 +1,11 @@
 import React from "react";
-import { setMode } from "../State";
+import { setMode } from "../state";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import SoButton from "../Components/SoButton";
-import { SoContainer, SoFlex, SoSection, SoSubTitle, SoTitle} from "../StyledComponent/globalStyles";
-import { useThemeContext } from "../ThemeProvider/ThemeProvider";
+import { SoContainer, SoFlex, SoSection, SoSubTitle, SoTitle} from "../styledcomponents/globalStyles";
+import { useThemeContext } from "../themeprovider/ThemeProvider";
 
 
 

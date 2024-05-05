@@ -4,11 +4,12 @@ import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
 import { createTheme } from "@mui/material/styles";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
-import LandingPage from "./Pages/LandingPage";
-import {ThemeProvider} from "./ThemeProvider/ThemeProvider";
-import {themeSettings} from "./ThemeProvider/theme";
-import JoinPage from "./Pages/JoinPage";
-import HomePage from "./Pages/HomePage";
+import LandingPage from "./pages/LandingPage";
+import {ThemeProvider} from "./themeprovider/ThemeProvider";
+import {themeSettings} from "./themeprovider/theme";
+import JoinPage from "./pages/JoinPage";
+import HomePage from "./pages/HomePage";
+import BlogRoutes from "./routes/BlogRoutes";
 
 
 const App = () => {
@@ -23,6 +24,8 @@ const App = () => {
           <Route path="/" element={<LandingPage />} />
            <Route path="/join" element={<JoinPage />} />
           <Route path="/home" element={<HomePage />} />
+
+          <Route path='/blog/*' element={<BlogRoutes/>} />
         </Routes>
       </ThemeProvider>
     </BrowserRouter>

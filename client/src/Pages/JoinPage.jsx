@@ -6,15 +6,15 @@ import {
   SoFlex,
   SoImg,
   SoSection,
-} from "../StyledComponent/globalStyles";
+} from "../styledcomponents/globalStyles";
 import { useDispatch, useSelector } from "react-redux";
-import { setMode, setType } from "../State";
+import { setMode, setType } from "../state";
 
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
-import LoginForm from "../Forms/LoginForm";
-import SoAlert from "../Components/SoAlert";
-import { useThemeContext } from "../ThemeProvider/ThemeProvider";
+import LoginForm from "../forms/LoginForm";
+import SoAlert from "../components/SoAlert";
+import { useThemeContext } from "../themeprovider/ThemeProvider";
 import loginImg from "../assets/images/login.jpeg";
 import registerImg from "../assets/images/register.jpeg";
 

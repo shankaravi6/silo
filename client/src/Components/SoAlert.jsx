@@ -2,7 +2,7 @@ import { Alert } from '@mui/material';
 import Snackbar from '@mui/material/Snackbar';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setAlert } from '../State';
+import { setAlert } from '../state';
 
 const SoAlert = () => {
   const alert = useSelector((state) => state.silo.alert)

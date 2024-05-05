@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
-import { useThemeContext } from "../themeprovider/ThemeProvider";
+import { useThemeContext } from "../../../themeprovider/ThemeProvider";
 
 const mapStateToProps = (state) => ({
     mode: state.silo.mode,
@@ -29,7 +29,7 @@ const StyledButton = SiloComponent(styled.button`
   font-weight: 500;
   padding: 10px 20px;
   width: ${(props) => props.width ? props.width : '100%'};
-  border-radius: 5px;
+  border-radius: 0px;
 
   &:hover {
   box-shadow: ${(props) => props.palette.shadow.main} 0px 5px 15px;
@@ -38,7 +38,7 @@ const StyledButton = SiloComponent(styled.button`
 `);
 
 
-const SoButton = ({ height, width, onChange, onSubmit, onClick, onBlur, type, children, style }) => {
+const BlogButton = ({ height, width, onChange, onSubmit, onClick, onBlur, type, children, style }) => {
   return (
       <StyledButton
         height={height}
@@ -55,4 +55,4 @@ const SoButton = ({ height, width, onChange, onSubmit, onClick, onBlur, type, ch
   );
 };
 
-export default SoButton;
+export default BlogButton;

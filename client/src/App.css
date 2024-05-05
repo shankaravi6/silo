@@ -14,6 +14,34 @@
   font-style: normal;
 }
 
+@font-face {
+  src: url("./assets/fonts/RoyalKevino.ttf");
+  font-family: "RoyalKevino";
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  src: url("./assets/fonts/Tiresias.ttf");
+  font-family: "Tiresias";
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  src: url("./assets/fonts/Ravigsfen.otf");
+  font-family: "Ravigsfen";
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  src: url("./assets/fonts/TrajanusRoman.ttf");
+  font-family: "TrajanusRoman";
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -84,6 +112,6 @@
 }
 
 .foreground {
-  transform: translateZ(-5px) translateY(25px) scale(1.5);
+  transform: translateZ(-5px) translateY(55px) scale(1.5);
   opacity: 0.8;
 }
