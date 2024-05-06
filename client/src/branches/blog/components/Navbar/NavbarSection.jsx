@@ -8,14 +8,14 @@ import {
   NavMenu,
   NavLinks,
   NavSection,
-} from "./NavbarStyles";
+} from "./NavbarStyles.jsx";
 import { FaRProject, FaTimes } from "react-icons/fa";
 import { CgMenuRight } from "react-icons/cg";
 import Logo from "../../../../assets/images/blog/bloglogo.png";
 import { useThemeContext } from "../../../../themeprovider/ThemeProvider";
 import BlogButton from "../BlogButton.jsx";
 
-const Navbar = () => {
+const NavbarSection = () => {
   const [show, setShow] = useState(false);
   const { palette } = useThemeContext();
 
@@ -81,4 +81,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavbarSection;
