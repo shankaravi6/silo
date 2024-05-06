@@ -3,7 +3,7 @@ import { setMode } from "../state";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import SoButton from "../Components/SoButton";
+import SoButton from "../components/SoButton";
 import { SoContainer, SoFlex, SoSection, SoSubTitle, SoTitle} from "../styledcomponents/globalStyles";
 import { useThemeContext } from "../themeprovider/ThemeProvider";
 
