@@ -17,7 +17,7 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import SoInput from "../components/SoInput";
 import { makeApiCall } from "../utils/ApiCall";
-import SoButton from "../Components/SoButton";
+import SoButton from "../components/SoButton";
 import { useNavigate } from "react-router-dom";
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
