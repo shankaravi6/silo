@@ -1,0 +1,4 @@
+.open-slider {
+        opacity: 0;
+        animation: reveal 2s forwards;     
+}

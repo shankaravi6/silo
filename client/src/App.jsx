@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "./App.css";
+import "./Animation.css";
 import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
 import { createTheme } from "@mui/material/styles";
 import { useMemo } from "react";

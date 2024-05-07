@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   BlogFlex,
   BlogBox,
@@ -8,50 +8,87 @@ import {
   BlogSubTitle,
   BlogTypography,
 } from "../../globalStyles";
-import BlogButton from "../BlogButton";
-import SideImg from "../../../../assets/images/blog/sideimg.jpeg";
+import { FaArrowLeftLong } from "react-icons/fa6";
+import { FaArrowRightLong } from "react-icons/fa6";
+import { bannerDatas } from "../../data/bannerData";
+import { useThemeContext } from "../../../../themeprovider/ThemeProvider";
 
 const BlogHeader = () => {
+  const [data, setData] = useState(0);
+  const bannerData = bannerDatas[data];
+  const [animated, setAnimated] = useState(false);
+
+  useEffect(() =>{
+    setAnimated(true)
+    setTimeout(() => {
+      setAnimated(false);
+    }, 1500);
+  },[])
+
+  const handleSliderNext = () => {
+    setData((prevData) => (prevData + 1) % bannerDatas.length);
+    setAnimated(true);
+    setTimeout(() => {
+      setAnimated(false);
+    }, 1500);
+  };
+
+  const handleSliderPrev = () => {
+    setData((prevData) => (prevData - 1 + bannerDatas.length) % bannerDatas.length);
+    setAnimated(true);
+    setTimeout(() => {
+      setAnimated(false);
+    }, 1500);
+  };
+
+  const { palette } = useThemeContext();
+
   return (
     <BlogFlex>
-      <BlogBox w="1000px" h="0px">
+      <BlogBox w="1000px" h="0px" className="z-50">
         <BlogCover className="relative">
+        <BlogCover>
           <BlogTitle
             ta="left"
             w="1000px"
-            className="absolute bottom-0 lg:pl-5"
+            className={`${animated ? 'open-slider' : ''} absolute bottom-3 lg:pl-5`}
             fs="clamp(1.5rem, 10vw, 4.75rem)"
           >
-            TELLING STORIES & PRESERVING MEMORIES FOR ETERNITY
+            {bannerData.title}
           </BlogTitle>
-          <BlogFlex>
-          <BlogSubTitle w="500px" ta="justify" bh='0' bw='0' className="mt-8 lg:pl-24 sm:w-0" smp='25px'>
-            Lorem ipsum dolor sit amet consectetur adipiscing elit dignissim ac,
-            nam justo non varius porta sem senectus diam, ad inceptos viverra
-            interdum elementum leo nisi nascetur. Himenaeos libero quisque
-            viverra mollis consequat mi interdum, aenean nec vestibulum
-            sollicitudin facilisis.
-            <br />
-          </BlogSubTitle>
+          <BlogFlex smm="35px 0 0 0" gap="20px">
+            <BlogCover className="cursor-pointer" style={{color:palette.background.low}} onClick={handleSliderPrev}>
+              <FaArrowLeftLong />
+            </BlogCover>
+            <BlogCover className="cursor-pointer" style={{color:palette.background.low}} onClick={handleSliderNext}>
+              <FaArrowRightLong />
+            </BlogCover>
           </BlogFlex>
-          <BlogFlex m='35px 0 0 0' gap='20px' sd='row'>
+          <BlogFlex>
+            <BlogSubTitle w="500px" ta="justify" bh="0" bw="0" className={`${animated ? 'open-slider' : ''} mt-8 lg:pl-24 sm:w-0`} smp="25px">
+              {bannerData.content}
+              <br />
+            </BlogSubTitle>
+          </BlogFlex>
+          </BlogCover>
+          <BlogFlex m="35px 0 0 0" smm='0 0 35px 0' gap="20px" sd="row">
             <BlogBox>
-                <BlogFlex al='flex-start' dir='column'>
-                    <BlogSubTitle>80K +</BlogSubTitle>
-                    <BlogTypography>Journalists</BlogTypography>
-                </BlogFlex>
+              <BlogFlex al="flex-start" dir="column">
+                <BlogSubTitle>80K +</BlogSubTitle>
+                <BlogTypography>Journalists</BlogTypography>
+              </BlogFlex>
             </BlogBox>
             <BlogBox>
-                <BlogFlex al='flex-start' dir='column'>
-                    <BlogSubTitle>2000K +</BlogSubTitle>
-                    <BlogTypography>Readers</BlogTypography>
-                </BlogFlex>
+              <BlogFlex al="flex-start" dir="column">
+                <BlogSubTitle>2000K +</BlogSubTitle>
+                <BlogTypography>Readers</BlogTypography>
+              </BlogFlex>
             </BlogBox>
           </BlogFlex>
         </BlogCover>
       </BlogBox>
       <BlogBox>
-        <BlogImg src={SideImg} />
+        <BlogImg className={`${animated ? 'open-slider' : ''}`} src={bannerData.img} />
       </BlogBox>
     </BlogFlex>
   );

@@ -83,6 +83,8 @@ export const BlogFlex = SiloComponent(styled.div`
 
   @media screen and (max-width: 970px) {
     flex-direction: ${(props) => props.sd ? props.sd : 'column'};
+    padding: ${(props) => (props.smp ? props.smp : "unset")};
+    margin: ${(props) => (props.smm ? props.smm : "unset")};
   }
 `);
 
