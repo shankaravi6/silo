@@ -84,7 +84,7 @@ export const NavMenu = SiloComponent(styled.div`
     justify-content:space-between;
 	list-style: none;
 	text-align: center;
-    width: clamp(20%, 100%, 70%);
+    width: clamp(25rem, 100vw, 55rem);
     color: ${(props) => props.palette.text.low};
 
 	@media screen and (max-width: 960px) {

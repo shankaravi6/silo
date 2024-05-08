@@ -91,6 +91,9 @@ export const SoBox = styled.div`
     transform: translateX(0) !important;
     display: ${(props) => (props.sdisplay ? props.sdisplay : "flex")};
   }
+  @media screen and (max-width:1125px) {
+    width: ${(props) => (props.mw ? props.mw : "none")};
+  }
 `;
 
 export const SoCard = SiloComponent(styled.div`
@@ -114,6 +117,9 @@ export const SoImg = styled.img`
     @media screen and (max-width: 970px) {
     width:unset;
   }
+  @media screen and (max-width: 1024px) {
+    width: ${(props) => (props.sw ? props.sw : "unset")};
+  }
 `;
 
 export const SoBackImg = styled.div`
@@ -124,7 +130,7 @@ export const SoBackImg = styled.div`
     background-size: cover;
     background-position: center;
     @media screen and (max-width: 970px) {
-    width:unset;
+      width:${(props) => (props.sw ? props.sw : "unset")};
   }
 `;
 

@@ -45,13 +45,13 @@ const BlogHeader = () => {
 
   return (
     <BlogFlex>
-      <BlogBox w="1000px" h="0px" className="z-50">
+      <BlogBox w="1000px" h="0px" className="z-50 relative">
         <BlogCover className="relative">
         <BlogCover>
           <BlogTitle
             ta="left"
-            w="1000px"
-            className={`${animated ? 'open-slider' : ''} absolute bottom-3 lg:pl-5`}
+            w="clamp(40rem, 100vw, 80rem)"
+            className={`${animated ? 'open-slider' : ''} absolute bottom-0 lg:pl-5`}
             fs="clamp(1.5rem, 10vw, 4.75rem)"
           >
             {bannerData.title}
@@ -65,7 +65,7 @@ const BlogHeader = () => {
             </BlogCover>
           </BlogFlex>
           <BlogFlex>
-            <BlogSubTitle w="500px" ta="justify" bh="0" bw="0" className={`${animated ? 'open-slider' : ''} mt-8 lg:pl-24 sm:w-0`} smp="25px">
+            <BlogSubTitle w="500px" ta="justify" bh="0" bw="0" className={`${animated ? 'open-slider' : ''} mt-8 xl:pl-24 lg:pl-12 pr-12 md:pl-1 sm:w-0`} smp="25px">
               {bannerData.content}
               <br />
             </BlogSubTitle>

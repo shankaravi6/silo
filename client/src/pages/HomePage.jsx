@@ -56,8 +56,8 @@ const HomePage = () => {
       <SoContainer className="justify-center items-center">
         <SoCover h="100vh" className="wrapper">
           <SoCover h="100%" className="header">
-            <SoBackImg className="background" url={HomeBack}/>
-            <SoImg w="55%" className="foreground" src={HomeOne} />
+            <SoBackImg className="background" sw='100%' url={HomeBack}/>
+            <SoImg sw='100%' w="55%" className="foreground" src={HomeOne} />
             <SoFlex bg="unset" dir="column" p="0 0 20px 0">
               <Zoom triggerOnce>
               <SoSubTitle
@@ -89,6 +89,7 @@ const HomePage = () => {
                   <Fade>
                     <SoBox
                       sw="270px"
+                      mw="270px"
                       sh="270px"
                       w="320px"
                       h="320px"
@@ -132,6 +133,7 @@ const HomePage = () => {
                     <SoBox
                       sw="270px"
                       sh="270px"
+                      mw="270px"
                       w="320px"
                       h="320px"
                       className="relative"
@@ -173,6 +175,7 @@ const HomePage = () => {
                     <SoBox
                       sw="270px"
                       sh="270px"
+                      mw="270px"
                       w="320px"
                       h="320px"
                       className="relative"
