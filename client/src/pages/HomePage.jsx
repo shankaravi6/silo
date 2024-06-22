@@ -66,7 +66,7 @@ const HomePage = () => {
                 color={palette.text.main}
                 className="pb-5"
               >
-                Welcome to silo world!
+                Welcome to silo world
               </SoSubTitle>
               </Zoom>
               <Slide triggerOnce direction="up">
