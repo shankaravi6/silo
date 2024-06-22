@@ -1,20 +1,10 @@
 import mongoose from 'mongoose';
-import Entry from '../models/entryModel.js';
 import User from '../models/userModel.js';
 import bcrypt from 'bcrypt';
 import jwt from "jsonwebtoken";
 import { decryptReq } from '../utils/decryptReq.js';
 import { encryptReq } from '../utils/encryptReq.js';
 
-
-export const getEntry = async (request, replay) => {
-    try {
-        const userEntry = await Entry.find();
-        replay.status(200).send(userEntry);
-    } catch (error) {
-        replay.status(500).send({ message: error.message });
-    }
-};
 
 export const userRegister = async (request, replay) => {
     const decrydata = decryptReq(request.body.data);

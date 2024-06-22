@@ -110,7 +110,7 @@ const HomePage = () => {
                             className="text-nowrap"
                             color={colorTokens.drops[300]}
                           >
-                            News & Blog
+                            Blog & Articles
                           </SoSubTitle>
                           <SoTypography
                             color={colorTokens.drops[100]}

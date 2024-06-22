@@ -3,11 +3,16 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 import { Provider } from "react-redux";
-import { configureStore } from "@reduxjs/toolkit";
-import themeReducer from "./state";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import themeReducer from "./state/index.js";
+
+
+const rootReducer = combineReducers({
+  silo: themeReducer
+});
 
 const store = configureStore({
-  reducer: { silo: themeReducer },
+  reducer: rootReducer,
 });
 
 ReactDOM.createRoot(document.getElementById("root")).render(

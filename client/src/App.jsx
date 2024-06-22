@@ -10,7 +10,6 @@ import {ThemeProvider} from "./themeprovider/ThemeProvider";
 import {themeSettings} from "./themeprovider/theme";
 import JoinPage from "./pages/JoinPage";
 import HomePage from "./pages/HomePage";
-import BlogRoutes from "./routes/BlogRoutes";
 
 
 const App = () => {
@@ -26,7 +25,6 @@ const App = () => {
            <Route path="/join" element={<JoinPage />} />
           <Route path="/home" element={<HomePage />} />
 
-          <Route path='/blog/*' element={<BlogRoutes/>} />
         </Routes>
       </ThemeProvider>
     </BrowserRouter>
