@@ -92,6 +92,10 @@ export const SoBox = styled.div`
   padding: ${(props) => (props.p ? props.p : "unset")};
   margin: ${(props) => (props.m ? props.m : "unset")};
   box-shadow: ${(props) => (props.bs ? props.bs : "unset")};
+  border:${(props) => (props.border ? props.border : 'unset')};
+  border-radius: ${(props) => (props.br ? props.br : "unset")};
+
+
 
   @media screen and (max-width: 970px) {
     width: ${(props) => (props.sw ? props.sw : "auto")};
@@ -191,7 +195,7 @@ export const SoSubTitle = SiloComponent(styled.h1`
 
 `);
 
-export const SoTypography = SiloComponent(styled.span`
+export const SoTypography = SiloComponent(styled.p`
   font-size: ${(props) => (props.fs ? props.fs : "clamp(1rem, 5vw, 1.5rem)")};
   font-weight: ${(props) => (props.fw ? props.fw : "normal")};
   letter-spacing: 1px;

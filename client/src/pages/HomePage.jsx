@@ -24,6 +24,14 @@ import { makeApiCall } from "../utils/ApiCall";
 import { encryptReq } from "../utils/EncryptionReq";
 import { decryptReq } from "../utils/DecryptionReq";
 import HomeBack from "../assets/images/homeback.jpeg";
+import Spotify from "../assets/images/icons/spotify.png";
+import MegaPhone from "../assets/images/icons/megaphone.png";
+import Rdio from "../assets/images/icons/rdio.png";
+import Zune from "../assets/images/icons/zune.png";
+import Boost from "../assets/images/icons/boost.png";
+
+
+
 import HomeOld from "../assets/images/homeone.png";
 import { colorTokens } from "../themeprovider/theme";
 import { Fade, JackInTheBox, Slide, Zoom } from "react-awesome-reveal";
@@ -33,7 +41,7 @@ import XIcon from "@mui/icons-material/X";
 import RedditIcon from "@mui/icons-material/Reddit";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import AllInclusiveIcon from "@mui/icons-material/AllInclusive";
-import PrecisionManufacturingIcon from '@mui/icons-material/PrecisionManufacturing';
+import PrecisionManufacturingIcon from "@mui/icons-material/PrecisionManufacturing";
 
 const HomePage = () => {
   const jwt = useSelector((state) => state.silo.loginResponse?.jwtToken);
@@ -67,7 +75,7 @@ const HomePage = () => {
             {/* <SoBackImg className="background" sw='100%' url={HomeOld}/> */}
             <SoImg sw="100%" w="100%" className="foreground" src={HomeBack} />
 
-            <SoFlex bg="unset" dir="column" p="0 0 0px 0">
+            <SoFlex bg="unset" dir="column" p="0 0 0 0">
               <SoCover p="0 0 20px 0" sp="0 15px 10px 15px">
                 <Zoom triggerOnce>
                   <SoSubTitle
@@ -82,9 +90,8 @@ const HomePage = () => {
                     <SoTypography color={colorTokens.drops[200]}>
                       Lorem ipsum dolor sit amet consectetur adipiscing elit
                       tortor consequat sem, pretium imperdiet porta diam nibh
-                      class curae maecenas feugiat. Lorem ipsum dolor sit amet
-                      consectetur adipiscing elit tortor consequat sem, pretium
-                      imperdiet porta diam nibh class curae maecenas feugiat.
+                      class curae maecenas feugiat. imperdiet porta diam nibh
+                      class curae maecenas feugiat.
                     </SoTypography>
                   </SoSection>
                 </Zoom>
@@ -94,15 +101,15 @@ const HomePage = () => {
                   Explore
                 </SoButton>
               </Slide>
-              <SoSection bg="none" p='25px 0 0 0'>
+              <SoSection bg="none" p="0px 0 0 0">
                 <SoFlex
                   bg="none"
                   jc="space-evenly"
-                  p="70px 0 0 0"
+                  p="30px 0 0 0"
                   sp="25px 0 0 0"
                   gap="20px"
                 >
-                  <SoFlex gap="20px" bg='none'>
+                  <SoFlex gap="20px" bg="none">
                     <SoFlex bg="none" dir="column">
                       <SoSubTitle
                         color={colorTokens.drops[100]}
@@ -118,7 +125,13 @@ const HomePage = () => {
                         Platform
                       </SoTypography> */}
                     </SoFlex>
-                    <SoFlex gap="20px" al='start' bg="none" dir="column" sm_dir="row">
+                    <SoFlex
+                      gap="20px"
+                      al="start"
+                      bg="none"
+                      dir="column"
+                      sm_dir="row"
+                    >
                       <SoFlex bg="none" gap="10px">
                         <SoCover
                           border={`2px solid ${colorTokens.drops[300]}`}
@@ -166,7 +179,7 @@ const HomePage = () => {
                         <SoCover
                           border={`2px solid ${colorTokens.drops[300]}`}
                           br="7.5px"
-                          p="15px"
+                          p="13px"
                           sp="5px"
                           className="mt-3"
                         >
@@ -177,7 +190,7 @@ const HomePage = () => {
                         <SoCover
                           border={`2px solid ${colorTokens.drops[300]}`}
                           br="7.5px"
-                          p="15px"
+                          p="13px"
                           sp="5px"
                           className="mt-3"
                         >
@@ -188,7 +201,7 @@ const HomePage = () => {
                         <SoCover
                           border={`2px solid ${colorTokens.drops[300]}`}
                           br="7.5px"
-                          p="15px"
+                          p="13px"
                           sp="5px"
                           className="mt-3"
                         >
@@ -197,7 +210,7 @@ const HomePage = () => {
                         <SoCover
                           border={`2px solid ${colorTokens.drops[300]}`}
                           br="7.5px"
-                          p="15px"
+                          p="13px"
                           sp="5px"
                           className="mt-3"
                         >
@@ -208,7 +221,7 @@ const HomePage = () => {
                         <SoCover
                           border={`2px solid ${colorTokens.drops[300]}`}
                           br="7.5px"
-                          p="15px"
+                          p="13px"
                           sp="5px"
                           className="mt-3"
                         >
@@ -220,6 +233,121 @@ const HomePage = () => {
                     </SoFlex>
                   </SoBox>
                 </SoFlex>
+              </SoSection>
+
+              <SoSection sp="0 0 0px 0" bg="none">
+              <SoBox sdisplay='none'>
+              <marquee scrollamount='25'>
+
+                <SoFlex p="50px 0 0 0" bg="none" sm_dir="row" al="space-evenly" gap="50px">
+                  <SoBox p="5px 15px" br="7.5px" bg="#cab08f8c">
+                    <SoFlex bg="none" gap="10px" sm_dir="row">
+                    <SoBox  w="30px" h="30px" sw="30px" sh="30px">
+                      <SoImg src={Spotify} />
+                      </SoBox>
+                      <SoTypography
+                        fs="clamp(1rem,5vw,1.15rem)"
+                        color={colorTokens.drops[200]}
+                      >
+                        Spotify
+                      </SoTypography>
+                    </SoFlex>
+                  </SoBox>
+                  <SoBox p="5px 15px" br="7.5px" bg="#cab08f8c">
+                    <SoFlex bg="none" gap="10px" sm_dir="row">
+                    <SoBox  w="30px" h="30px" sw="30px" sh="30px">
+                      <SoImg src={Zune} />
+                      </SoBox>
+                      <SoTypography
+                        fs="clamp(1rem,5vw,1.15rem)"
+                        color={colorTokens.drops[200]}
+                      >
+                        Zune
+                      </SoTypography>
+                    </SoFlex>
+                  </SoBox>
+                  <SoBox p="5px 15px" br="7.5px" bg="#cab08f8c">
+                    <SoFlex bg="none" gap="10px" sm_dir="row">
+                    <SoBox  w="30px" h="30px" sw="30px" sh="30px">
+                      <SoImg src={Boost} />
+                      </SoBox>
+                      <SoTypography
+                        fs="clamp(1rem,5vw,1.15rem)"
+                        color={colorTokens.drops[200]}
+                      >
+                        Boost
+                      </SoTypography>
+                    </SoFlex>
+                  </SoBox>
+                  <SoBox p="5px 15px" br="7.5px" bg="#cab08f8c">
+                    <SoFlex bg="none" gap="10px" sm_dir="row">
+                    <SoBox  w="30px" h="30px" sw="30px" sh="30px">
+                      <SoImg src={MegaPhone} />
+                      </SoBox>
+                      <SoTypography
+                        fs="clamp(1rem,5vw,1.15rem)"
+                        color={colorTokens.drops[200]}
+                      >
+                        MegaPhone
+                      </SoTypography>
+                    </SoFlex>
+                  </SoBox>
+                  <SoBox p="5px 15px" br="7.5px" bg="#cab08f8c">
+                    <SoFlex bg="none" gap="10px" sm_dir="row">
+                    <SoBox  w="30px" h="30px" sw="30px" sh="30px">
+                      <SoImg src={Rdio} />
+                      </SoBox>
+                      <SoTypography
+                        fs="clamp(1rem,5vw,1.15rem)"
+                        color={colorTokens.drops[200]}
+                      >
+                        Rdio
+                      </SoTypography>
+                    </SoFlex>
+                  </SoBox>
+                  <SoBox p="5px 15px" br="7.5px" bg="#cab08f8c">
+                    <SoFlex bg="none" gap="10px" sm_dir="row">
+                    <SoBox  w="30px" h="30px" sw="30px" sh="30px">
+                      <SoImg src={Spotify} />
+                      </SoBox>
+                      <SoTypography
+                        fs="clamp(1rem,5vw,1.15rem)"
+                        color={colorTokens.drops[200]}
+                      >
+                        Spotify
+                      </SoTypography>
+                    </SoFlex>
+                  </SoBox>
+                  <SoBox p="5px 15px" br="7.5px" bg="#cab08f8c">
+                    <SoFlex bg="none" gap="10px" sm_dir="row">
+                    <SoBox  w="30px" h="30px" sw="30px" sh="30px">
+                      <SoImg src={Zune} />
+                      </SoBox>
+                      <SoTypography
+                        fs="clamp(1rem,5vw,1.15rem)"
+                        color={colorTokens.drops[200]}
+                      >
+                        Zune
+                      </SoTypography>
+                    </SoFlex>
+                  </SoBox>
+                  <SoBox p="5px 15px" br="7.5px" bg="#cab08f8c">
+                    <SoFlex bg="none" gap="10px" sm_dir="row">
+                    <SoBox  w="30px" h="30px" sw="30px" sh="30px">
+                      <SoImg src={Boost} />
+                      </SoBox>
+                      <SoTypography
+                        fs="clamp(1rem,5vw,1.15rem)"
+                        color={colorTokens.drops[200]}
+                      >
+                        Boost
+                      </SoTypography>
+                    </SoFlex>
+                  </SoBox>
+                </SoFlex>
+                
+              </marquee>
+              </SoBox>
               </SoSection>
             </SoFlex>
           </SoCover>
