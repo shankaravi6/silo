@@ -52,14 +52,19 @@ export const SoCover = SiloComponent(styled.div`
   background: ${(props) =>
     props.bg ? props.bg : 'unset'};
   padding: ${(props) => (props.p ? props.p : "unset")};
+  margin: ${(props) => (props.m ? props.m : "unset")};
   border-radius: ${(props) => (props.br ? props.br : "unset")};
-
+  border:${(props) => (props.border ? props.border : 'unset')};
+  @media screen and (max-width: 970px) {
+    padding: ${(props) => (props.sp ? props.sp : "none")};
+    height: ${(props) => (props.sh ? props.sh : "none")};
+  }
 `);
 
 export const SoFlex = SiloComponent(styled.div`
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: ${(props) => (props.al ? props.al : "center")};
+  justify-content: ${(props) => (props.jc ? props.jc : "center")};
   flex-direction: ${(props) => (props.dir ? props.dir : "row")};
   width: ${(props) => (props.w ? props.w : "unset")};
   height: ${(props) => (props.h ? props.h : "unset")};
@@ -72,7 +77,10 @@ export const SoFlex = SiloComponent(styled.div`
   border-radius: ${(props) => (props.br ? props.br : "unset")};
 
   @media screen and (max-width: 970px) {
-    flex-direction: column;
+    flex-direction:  ${(props) => (props.sm_dir ? props.sm_dir : "column")};
+    padding:  ${(props) => (props.sp ? props.sp : "none")};
+    align-items: ${(props) => (props.sal ? props.sal : "center")};
+  justify-content: ${(props) => (props.sjc ? props.sjc : "center")};
   }
 `);
 
@@ -191,5 +199,6 @@ export const SoTypography = SiloComponent(styled.span`
   padding: ${(props) => props.p};
   margin: ${(props) => props.m};
   color: ${(props) => (props.color ? props.color : props.palette.text.main)};
+  text-align:${(props) => (props.ta ? props.ta :"justify")};
   text-shadow: ${(props) => props.ts ? props.ts : 'unset'};
 `);

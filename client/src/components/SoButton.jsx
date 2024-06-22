@@ -29,6 +29,7 @@ const StyledButton = SiloComponent(styled.button`
   font-weight: 500;
   padding: 10px 20px;
   width: ${(props) => props.width ? props.width : '100%'};
+  margin : ${(props) => props.m ? props.m : 'unset'};
   border-radius: 5px;
 
   &:hover {
@@ -38,11 +39,12 @@ const StyledButton = SiloComponent(styled.button`
 `);
 
 
-const SoButton = ({ height, width, onChange, onSubmit, onClick, onBlur, type, children, style }) => {
+const SoButton = ({ height, width,m, onChange, onSubmit, onClick, onBlur, type, children, style }) => {
   return (
       <StyledButton
         height={height}
         width={width}
+        m={m}
         onChange={onChange}
         onSubmit={onSubmit}
         onClick={onClick}
