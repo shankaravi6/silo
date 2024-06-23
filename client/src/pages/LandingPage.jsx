@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import SoButton from "../components/SoButton";
-import { SoContainer, SoFlex, SoSection, SoSubTitle, SoTitle} from "../styledcomponents/globalStyles";
+import { SoCenterContainer, SoContainer, SoFlex, SoSection, SoSubTitle, SoTitle} from "../styledcomponents/globalStyles";
 import { useThemeContext } from "../themeprovider/ThemeProvider";
 
 
@@ -16,7 +16,7 @@ const LandingPage = () => {
   const navigate = useNavigate();
 
   return (
-    <SoContainer className='flex justify-center items-center'>
+    <SoCenterContainer>
       <SoSection>
         <SoFlex dir='column'>
         <SoTitle fs='clamp(5rem, 15vw, 10rem)' ls='50px'>
@@ -32,7 +32,7 @@ const LandingPage = () => {
        </SoButton>
        </SoFlex>
       </SoSection>
-    </SoContainer>
+    </SoCenterContainer>
   );
 };
 

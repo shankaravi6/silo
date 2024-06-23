@@ -69,7 +69,7 @@ const HomePage = () => {
 
   return (
     <>
-      <SoContainer className="justify-center items-center">
+      <SoContainer>
         <SoCover h="100vh" className="wrapper">
           <SoCover h="100%" className="header">
             {/* <SoBackImg className="background" sw='100%' url={HomeOld}/> */}

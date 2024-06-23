@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import {
   SoBox,
+  SoCenterContainer,
   SoContainer,
   SoCover,
   SoFlex,
@@ -34,61 +35,54 @@ const JoinPage = () => {
   }, [type]);
 
   return (
-    <SoContainer className="flex justify-center items-center">
-   
-      <SoSection id='join'>
-      
-
-      <SoFlex>
-       <SoBox
-                w="600px"
-                h="600px"
-                sdisplay="none"
-                style={{
-                  transition: "all 2s ease",
-                  transform: `translateX(${type === "login" ? "100%" : "0"})`,
-                }}
-                bs={`${palette.shadow.sub} 0px 25px 50px -12px`}
-              >
-                <SoImg
-                  id="img"
-                  src={
-                    type === "login"
-                      ? loginImg
-                      : registerImg
-                  }
-                  alt="login_img"
-                  className={fadeIn ? "fadeIn" : ""}
-                />
-              </SoBox>
-              <SoBox
-                w="600px"
-                h="600px"
-                sw="100vw"
-                sh="100vh"
-                className="relative"
-                style={{
-                  transition: "all 2s ease",
-                  transform: `translateX(${type === "login" ? "-100%" : "0"})`,
-                }}
-                bs={`${palette.shadow.sub} 0px 25px 50px -12px`}
-              >
-                <SoBox
-                  onClick={() => dispatch(setMode())}
-                 className="absolute top-5 right-5 cursor-pointer"
-                >
-                  {mode === "light" ? <DarkModeIcon style={{color:palette.text.main}} /> : <LightModeIcon style={{color:palette.text.main}}   />}
-                </SoBox>
-                <LoginForm type={type} />
-              </SoBox>
-      </SoFlex>
-
-   
+    <SoCenterContainer>
+      <SoSection id="join">
+        <SoFlex>
+          <SoBox
+            w="600px"
+            h="600px"
+            sdisplay="none"
+            style={{
+              transition: "all 2s ease",
+              transform: `translateX(${type === "login" ? "100%" : "0"})`,
+            }}
+            bs={`${palette.shadow.sub} 0px 25px 50px -12px`}
+          >
+            <SoImg
+              id="img"
+              src={type === "login" ? loginImg : registerImg}
+              alt="login_img"
+              className={fadeIn ? "fadeIn" : ""}
+            />
+          </SoBox>
+          <SoBox
+            w="600px"
+            h="600px"
+            sw="100vw"
+            sh="100vh"
+            className="relative"
+            style={{
+              transition: "all 2s ease",
+              transform: `translateX(${type === "login" ? "-100%" : "0"})`,
+            }}
+            bs={`${palette.shadow.sub} 0px 25px 50px -12px`}
+          >
+            <SoBox
+              onClick={() => dispatch(setMode())}
+              className="absolute top-5 right-5 cursor-pointer"
+            >
+              {mode === "light" ? (
+                <DarkModeIcon style={{ color: palette.text.main }} />
+              ) : (
+                <LightModeIcon style={{ color: palette.text.main }} />
+              )}
+            </SoBox>
+            <LoginForm type={type} />
+          </SoBox>
+        </SoFlex>
       </SoSection>
       <SoAlert />
-    </SoContainer>
-
-    
+    </SoCenterContainer>
   );
 };
 
