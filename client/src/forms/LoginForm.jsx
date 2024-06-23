@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
   SoFlex,
   SoForm,
+  SoSpan,
   SoTitle,
   SoTypography,
 } from "../styledcomponents/globalStyles";
@@ -260,12 +261,12 @@ const LoginForm = ({ type }) => {
               {type == "login"
                 ? "Don't have an account? "
                 : "Already have an account? "}
-              <SoTypography fs='clamp(1rem, 5vw, 1.1rem)'
+              <SoSpan fs='clamp(1rem, 5vw, 1.1rem)'
                 className='underline cursor-pointer'
                 onClick={() => dispatch(setType())}
               >
                 {type == "login" ? "Register" : "Login"}
-              </SoTypography>
+              </SoSpan>
             </SoTypography>
             <SoTypography className='text-center' fs='clamp(1rem, 5vw, 1.1rem)' p="10px 0 0 0">
               Or
