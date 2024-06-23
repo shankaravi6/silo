@@ -236,10 +236,10 @@ const HomePage = () => {
               </SoSection>
 
               <SoSection sp="0 0 0px 0" bg="none">
-              <SoBox sdisplay='none'>
-              <marquee scrollamount='25'>
+              <SoBox  sdisplay='none'>
+              {/* <marquee scrollamount='25'> */}
 
-                <SoFlex p="50px 0 0 0" bg="none" sm_dir="row" al="space-evenly" gap="50px">
+                <SoFlex p="50px 0 0 0" w='100%' bg="none" sm_dir="row" al="space-evenly" gap="50px">
                   <SoBox p="5px 15px" br="7.5px" bg="#cab08f8c">
                     <SoFlex bg="none" gap="10px" sm_dir="row">
                     <SoBox  w="30px" h="30px" sw="30px" sh="30px">
@@ -305,48 +305,9 @@ const HomePage = () => {
                       </SoTypography>
                     </SoFlex>
                   </SoBox>
-                  <SoBox p="5px 15px" br="7.5px" bg="#cab08f8c">
-                    <SoFlex bg="none" gap="10px" sm_dir="row">
-                    <SoBox  w="30px" h="30px" sw="30px" sh="30px">
-                      <SoImg src={Spotify} />
-                      </SoBox>
-                      <SoTypography
-                        fs="clamp(1rem,5vw,1.15rem)"
-                        color={colorTokens.drops[200]}
-                      >
-                        Spotify
-                      </SoTypography>
-                    </SoFlex>
-                  </SoBox>
-                  <SoBox p="5px 15px" br="7.5px" bg="#cab08f8c">
-                    <SoFlex bg="none" gap="10px" sm_dir="row">
-                    <SoBox  w="30px" h="30px" sw="30px" sh="30px">
-                      <SoImg src={Zune} />
-                      </SoBox>
-                      <SoTypography
-                        fs="clamp(1rem,5vw,1.15rem)"
-                        color={colorTokens.drops[200]}
-                      >
-                        Zune
-                      </SoTypography>
-                    </SoFlex>
-                  </SoBox>
-                  <SoBox p="5px 15px" br="7.5px" bg="#cab08f8c">
-                    <SoFlex bg="none" gap="10px" sm_dir="row">
-                    <SoBox  w="30px" h="30px" sw="30px" sh="30px">
-                      <SoImg src={Boost} />
-                      </SoBox>
-                      <SoTypography
-                        fs="clamp(1rem,5vw,1.15rem)"
-                        color={colorTokens.drops[200]}
-                      >
-                        Boost
-                      </SoTypography>
-                    </SoFlex>
-                  </SoBox>
                 </SoFlex>
                 
-              </marquee>
+              {/* </marquee> */}
               </SoBox>
               </SoSection>
             </SoFlex>
@@ -487,7 +448,6 @@ const HomePage = () => {
                 </SoFlex>
               </SoCard>
             </SoFlex>
-            <br />
             <br />
           </SoSection>
           {/* <SoSection p="50px" mw='unset' h='800px' sh="100vh" id="about">
