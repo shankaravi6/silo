@@ -97,7 +97,7 @@ const HomePage = () => {
                 </Zoom>
               </SoCover>
               <Slide triggerOnce direction="up">
-                <SoButton width="auto" onClick={() => testApi()}>
+                <SoButton variant="outline" width="auto" onClick={() => testApi()}>
                   Explore
                 </SoButton>
               </Slide>
