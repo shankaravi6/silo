@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import "./App.css";
 import "./Animation.css";
 import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
-import { createTheme } from "@mui/material/styles";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import LandingPage from "./pages/LandingPage";
@@ -14,7 +13,7 @@ import HomePage from "./pages/HomePage";
 
 const App = () => {
   const mode = useSelector((state) => state.silo.mode);
-  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
+  const theme = useMemo(() => themeSettings(mode), [mode]);
 
 
   return (
@@ -24,7 +23,6 @@ const App = () => {
           <Route path="/" element={<LandingPage />} />
            <Route path="/join" element={<JoinPage />} />
           <Route path="/home" element={<HomePage />} />
-
         </Routes>
       </ThemeProvider>
     </BrowserRouter>
