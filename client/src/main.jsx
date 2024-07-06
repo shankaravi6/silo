@@ -4,11 +4,11 @@ import App from "./App.jsx";
 import "./index.css";
 import { Provider } from "react-redux";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import themeReducer from "./state/index.js";
+import reduxReducer from "./state/index.js";
 
 
 const rootReducer = combineReducers({
-  silo: themeReducer
+  silo: reduxReducer
 });
 
 const store = configureStore({
