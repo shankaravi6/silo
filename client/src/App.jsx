@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import "./App.css";
-import "./Animation.css";
 import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
