@@ -320,7 +320,7 @@ const HomePage = () => {
           >
             <SoFlex bg="unset" gap="20px" m="20px 0 0 0">
               <SoCard p="0">
-                <Link to="/blog">
+                <Link to="https://silo-blog.netlify.app/">
                   <SoFlex p="15px 0 0 0" br="15px" dir="column">
                     <Fade>
                       <SoBox
