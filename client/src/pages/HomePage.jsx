@@ -12,7 +12,7 @@ import {
   SoTitle,
   SoTypography,
 } from "../styledcomponents/globalStyles";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import { useThemeContext } from "../themeprovider/ThemeProvider";
@@ -23,25 +23,11 @@ import SoButton from "../components/SoButton";
 import { makeApiCall } from "../utils/ApiCall";
 import { encryptReq } from "../utils/EncryptionReq";
 import { decryptReq } from "../utils/DecryptionReq";
-import HomeBack from "../assets/images/homeback.jpeg";
-import Spotify from "../assets/images/icons/spotify.png";
-import MegaPhone from "../assets/images/icons/megaphone.png";
-import Rdio from "../assets/images/icons/rdio.png";
-import Zune from "../assets/images/icons/zune.png";
-import Boost from "../assets/images/icons/boost.png";
-
-
+import BlackHole from "../assets/images/blackhole.jpg";
 
 import HomeOld from "../assets/images/homeone.png";
 import { colorTokens } from "../themeprovider/theme";
-import { Fade, JackInTheBox, Slide, Zoom } from "react-awesome-reveal";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import XIcon from "@mui/icons-material/X";
-import RedditIcon from "@mui/icons-material/Reddit";
-import YouTubeIcon from "@mui/icons-material/YouTube";
-import AllInclusiveIcon from "@mui/icons-material/AllInclusive";
-import PrecisionManufacturingIcon from "@mui/icons-material/PrecisionManufacturing";
+import { Fade, Slide, Zoom } from "react-awesome-reveal";
 
 const HomePage = () => {
   const jwt = useSelector((state) => state.silo.loginResponse?.jwtToken);
@@ -73,243 +59,44 @@ const HomePage = () => {
         <SoCover h="100vh" className="wrapper">
           <SoCover h="100%" className="header">
             {/* <SoBackImg className="background" sw='100%' url={HomeOld}/> */}
-            <SoImg sw="100%" w="100%" className="foreground" src={HomeBack} />
+            <SoImg sw="100%" w="100%" className="foreground" src={BlackHole} />
 
             <SoFlex bg="unset" dir="column" p="0 0 0 0">
               <SoCover p="0 0 20px 0" sp="0 15px 10px 15px">
                 <Zoom triggerOnce>
                   <SoSubTitle
-                    fs="clamp(1rem, 7vw, 4rem)"
+                    fs="clamp(1rem, 10vw, 5.5rem)"
                     fw="600"
-                    color={colorTokens.drops[300]}
+                    ls="20px"
                     className="pb-5"
+                    style={{
+                      background: "-webkit-linear-gradient(#FFF8E1, #3c0f00)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                    }}
                   >
                     Welcome to silo
                   </SoSubTitle>
-                  <SoSection bg="none">
-                    <SoTypography color={colorTokens.drops[200]}>
-                      Lorem ipsum dolor sit amet consectetur adipiscing elit
-                      tortor consequat sem, pretium imperdiet porta diam nibh
-                      class curae maecenas feugiat. imperdiet porta diam nibh
-                      class curae maecenas feugiat.
+
+                  <SoFlex bg="none">
+                    <SoTypography
+                      ta='center'
+                      ls="7.5px"
+                      fm="sans-serif"
+                      fs="clamp(.5rem, 2vw, 1rem)"
+                      className="pb-5 uppercase"
+                      fw="500"
+                    >
+                      What you have just seen, you will unsee
                     </SoTypography>
-                  </SoSection>
+                  </SoFlex>
                 </Zoom>
               </SoCover>
               <Slide triggerOnce direction="up">
-                <SoButton variant="outline" width="auto" onClick={() => testApi()}>
+                <SoButton width="auto" onClick={() => testApi()}>
                   Explore
                 </SoButton>
               </Slide>
-              <SoSection bg="none" p="0px 0 0 0">
-                <SoFlex
-                  bg="none"
-                  jc="space-evenly"
-                  p="30px 0 0 0"
-                  sp="25px 0 0 0"
-                  gap="20px"
-                >
-                  <SoFlex gap="20px" bg="none">
-                    <SoFlex bg="none" dir="column">
-                      <SoSubTitle
-                        color={colorTokens.drops[100]}
-                        fs="clamp(2.5rem,10vw, 7rem)"
-                      >
-                        #01
-                      </SoSubTitle>
-                      {/* <SoTypography
-                        m="-30px 0 0 0"
-                        color={colorTokens.drops[100]}
-                        fs="clamp(1.5rem,5vw, 2rem)"
-                      >
-                        Platform
-                      </SoTypography> */}
-                    </SoFlex>
-                    <SoFlex
-                      gap="20px"
-                      al="start"
-                      bg="none"
-                      dir="column"
-                      sm_dir="row"
-                    >
-                      <SoFlex bg="none" gap="10px">
-                        <SoCover
-                          border={`2px solid ${colorTokens.drops[300]}`}
-                          br="50px"
-                          p="5px"
-                          sp="5px"
-                        >
-                          <AllInclusiveIcon
-                            style={{ color: colorTokens.drops[200] }}
-                          />
-                        </SoCover>
-                        <SoTypography
-                          fs="clamp(1rem, 3rem, 1.2rem)"
-                          color={colorTokens.drops[200]}
-                        >
-                          Infinite Capacity
-                        </SoTypography>
-                      </SoFlex>
-                      <SoFlex bg="none" gap="10px">
-                        <SoCover
-                          border={`2px solid ${colorTokens.drops[300]}`}
-                          br="50px"
-                          p="5px"
-                          sp="5px"
-                        >
-                          <PrecisionManufacturingIcon
-                            style={{ color: colorTokens.drops[200] }}
-                          />
-                        </SoCover>
-                        <SoTypography
-                          fs="clamp(1rem, 3rem, 1.2rem)"
-                          color={colorTokens.drops[200]}
-                        >
-                          Productivity
-                        </SoTypography>
-                      </SoFlex>
-                    </SoFlex>
-                  </SoFlex>
-                  <SoBox>
-                    <SoFlex dir="column" bg="none" gap="20px">
-                      <SoTypography color={colorTokens.drops[100]}>
-                        FOLLOW US
-                      </SoTypography>
-                      <SoFlex sm_dir="row" gap="20px" bg="none">
-                        <SoCover
-                          border={`2px solid ${colorTokens.drops[300]}`}
-                          br="7.5px"
-                          p="13px"
-                          sp="5px"
-                          className="mt-3"
-                        >
-                          <FacebookIcon
-                            style={{ color: colorTokens.drops[200] }}
-                          />
-                        </SoCover>
-                        <SoCover
-                          border={`2px solid ${colorTokens.drops[300]}`}
-                          br="7.5px"
-                          p="13px"
-                          sp="5px"
-                          className="mt-3"
-                        >
-                          <InstagramIcon
-                            style={{ color: colorTokens.drops[200] }}
-                          />
-                        </SoCover>
-                        <SoCover
-                          border={`2px solid ${colorTokens.drops[300]}`}
-                          br="7.5px"
-                          p="13px"
-                          sp="5px"
-                          className="mt-3"
-                        >
-                          <XIcon style={{ color: colorTokens.drops[200] }} />
-                        </SoCover>
-                        <SoCover
-                          border={`2px solid ${colorTokens.drops[300]}`}
-                          br="7.5px"
-                          p="13px"
-                          sp="5px"
-                          className="mt-3"
-                        >
-                          <RedditIcon
-                            style={{ color: colorTokens.drops[200] }}
-                          />
-                        </SoCover>
-                        <SoCover
-                          border={`2px solid ${colorTokens.drops[300]}`}
-                          br="7.5px"
-                          p="13px"
-                          sp="5px"
-                          className="mt-3"
-                        >
-                          <YouTubeIcon
-                            style={{ color: colorTokens.drops[200] }}
-                          />
-                        </SoCover>
-                      </SoFlex>
-                    </SoFlex>
-                  </SoBox>
-                </SoFlex>
-              </SoSection>
-
-              <SoSection sp="0 0 0px 0" bg="none">
-              <SoBox  sdisplay='none'>
-              {/* <marquee scrollamount='25'> */}
-
-                <SoFlex p="50px 0 0 0" w='100%' bg="none" sm_dir="row" al="space-evenly" gap="50px">
-                  <SoBox p="5px 15px" br="7.5px" bg="#cab08f8c">
-                    <SoFlex bg="none" gap="10px" sm_dir="row">
-                    <SoBox  w="30px" h="30px" sw="30px" sh="30px">
-                      <SoImg src={Spotify} />
-                      </SoBox>
-                      <SoTypography
-                        fs="clamp(1rem,5vw,1.15rem)"
-                        color={colorTokens.drops[200]}
-                      >
-                        Spotify
-                      </SoTypography>
-                    </SoFlex>
-                  </SoBox>
-                  <SoBox p="5px 15px" br="7.5px" bg="#cab08f8c">
-                    <SoFlex bg="none" gap="10px" sm_dir="row">
-                    <SoBox  w="30px" h="30px" sw="30px" sh="30px">
-                      <SoImg src={Zune} />
-                      </SoBox>
-                      <SoTypography
-                        fs="clamp(1rem,5vw,1.15rem)"
-                        color={colorTokens.drops[200]}
-                      >
-                        Zune
-                      </SoTypography>
-                    </SoFlex>
-                  </SoBox>
-                  <SoBox p="5px 15px" br="7.5px" bg="#cab08f8c">
-                    <SoFlex bg="none" gap="10px" sm_dir="row">
-                    <SoBox  w="30px" h="30px" sw="30px" sh="30px">
-                      <SoImg src={Boost} />
-                      </SoBox>
-                      <SoTypography
-                        fs="clamp(1rem,5vw,1.15rem)"
-                        color={colorTokens.drops[200]}
-                      >
-                        Boost
-                      </SoTypography>
-                    </SoFlex>
-                  </SoBox>
-                  <SoBox p="5px 15px" br="7.5px" bg="#cab08f8c">
-                    <SoFlex bg="none" gap="10px" sm_dir="row">
-                    <SoBox  w="30px" h="30px" sw="30px" sh="30px">
-                      <SoImg src={MegaPhone} />
-                      </SoBox>
-                      <SoTypography
-                        fs="clamp(1rem,5vw,1.15rem)"
-                        color={colorTokens.drops[200]}
-                      >
-                        MegaPhone
-                      </SoTypography>
-                    </SoFlex>
-                  </SoBox>
-                  <SoBox p="5px 15px" br="7.5px" bg="#cab08f8c">
-                    <SoFlex bg="none" gap="10px" sm_dir="row">
-                    <SoBox  w="30px" h="30px" sw="30px" sh="30px">
-                      <SoImg src={Rdio} />
-                      </SoBox>
-                      <SoTypography
-                        fs="clamp(1rem,5vw,1.15rem)"
-                        color={colorTokens.drops[200]}
-                      >
-                        Rdio
-                      </SoTypography>
-                    </SoFlex>
-                  </SoBox>
-                </SoFlex>
-                
-              {/* </marquee> */}
-              </SoBox>
-              </SoSection>
             </SoFlex>
           </SoCover>
           <SoSection
@@ -450,8 +237,6 @@ const HomePage = () => {
             </SoFlex>
             <br />
           </SoSection>
-          {/* <SoSection p="50px" mw='unset' h='800px' sh="100vh" id="about">
-            </SoSection> */}
         </SoCover>
       </SoContainer>
     </>

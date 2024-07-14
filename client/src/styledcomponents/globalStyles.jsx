@@ -206,7 +206,7 @@ export const SoSubTitle = SiloComponent(styled.h1`
 export const SoTypography = SiloComponent(styled.p`
   font-size: ${(props) => (props.fs ? props.fs : "clamp(1rem, 5vw, 1.5rem)")};
   font-weight: ${(props) => (props.fw ? props.fw : "normal")};
-  letter-spacing: 1px;
+  letter-spacing: ${(props) => (props.ls ? props.ls : "1px")};
   font-family: ${(props) => (props.fm ? props.fm : `"Quicksand", sans-serif`)};
   padding: ${(props) => props.p};
   margin: ${(props) => props.m};
