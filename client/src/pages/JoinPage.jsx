@@ -67,7 +67,7 @@ const JoinPage = () => {
             }}
             bs={`${palette.shadow.sub} 0px 25px 50px -12px`}
           >
-            <SoBox
+            {/* <SoBox
               onClick={() => dispatch(setMode())}
               className="absolute top-5 right-5 cursor-pointer"
             >
@@ -76,7 +76,7 @@ const JoinPage = () => {
               ) : (
                 <LightModeIcon style={{ color: palette.text.main }} />
               )}
-            </SoBox>
+            </SoBox> */}
             <LoginForm type={type} />
           </SoBox>
         </SoFlex>
