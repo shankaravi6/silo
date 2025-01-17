@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+
+@font-face {
+  src: url("./assets/fonts/SiloFont.ttf");
+  font-family: "Silo";
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  src: url("./assets/fonts/AquireLight.otf");
+  font-family: "AquireLight";
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  src: url("./assets/fonts/RoyalKevino.ttf");
+  font-family: "RoyalKevino";
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  src: url("./assets/fonts/Tiresias.ttf");
+  font-family: "Tiresias";
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  src: url("./assets/fonts/Ravigsfen.otf");
+  font-family: "Ravigsfen";
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  src: url("./assets/fonts/TrajanusRoman.ttf");
+  font-family: "TrajanusRoman";
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+  scroll-behavior:smooth;
+}
+
+.home-page {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 970px) {
+  .home-description {
+    font-size: 1.5rem;
+  }
+}
+
+/* Parallax */
+.wrapper {
+  height: 100vh;
+  overflow-x: hidden;
+  perspective: 10px;
+}
+
+.header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  transform-style: preserve-3d;
+  z-index: -1;
+}
+
+.background,
+.foreground {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.background {
+  transform: scale(1);
+  opacity: 1;
+  filter: blur(0.15rem);
+}
+
+.foreground {
+  transform: translateZ(-2.5px) translateY(0px) scale(1.5);
+  opacity: 0.30;
+}
+
+
+.glass-card {
+  background: rgba( 242, 224, 200, 0.25 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+/* Fade */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 2s ease-in;
+}
+
+/* Reveal */
+@keyframes reveal {
+from {
+  clip-path: polygon(0 0, 0 0, 0% 100%, 0% 100%);
+  opacity: 0;
+}
+to {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  opacity: 1;
+}
+}
