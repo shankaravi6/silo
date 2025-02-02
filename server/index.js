@@ -26,7 +26,7 @@ import mongoose from 'mongoose';
 import fastifyCors from '@fastify/cors';
 import dotenv from 'dotenv';
 import userRoute from './routes/userRoute.js';
-import siloBlogRoute from './routes/siloblogRoute.js';
+import siloBlogRoute from './routes/siloBlogRoute.js';
 // import redisClient from './configs/redisConfig.js';
 
 // const checkRedisConnection = async () => {
