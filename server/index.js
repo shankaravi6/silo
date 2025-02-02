@@ -27,18 +27,18 @@ import fastifyCors from '@fastify/cors';
 import dotenv from 'dotenv';
 import userRoute from './routes/userRoute.js';
 import siloBlogRoute from './routes/siloblogRoute.js';
-import redisClient from './configs/redisConfig.js';
+// import redisClient from './configs/redisConfig.js';
 
-const checkRedisConnection = async () => {
-  try {
-      await redisClient.connect();  
-      console.log('Connected to Redis');
-  } catch (err) {
-      console.error('Redis connection error:', err);
-  }
-};
+// const checkRedisConnection = async () => {
+//   try {
+//       await redisClient.connect();  
+//       console.log('Connected to Redis');
+//   } catch (err) {
+//       console.error('Redis connection error:', err);
+//   }
+// };
 
-checkRedisConnection();
+// checkRedisConnection();
 
 dotenv.config();
 

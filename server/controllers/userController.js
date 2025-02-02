@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt';
 import jwt from "jsonwebtoken";
 import { decryptReq } from '../utils/decryptReq.js';
 import { encryptReq } from '../utils/encryptReq.js';
-import redisClient from '../configs/redisConfig.js';
+// import redisClient from '../configs/redisConfig.js';
 
 
 export const userRegister = async (request, replay) => {
@@ -37,9 +37,9 @@ export const userRegister = async (request, replay) => {
 export const userLogin = async (request, reply) => {
     const decrydata = decryptReq(request.body.data);
     const {email, password} = decrydata;
-    await redisClient.set("test", email); 
-    const redisData = await redisClient.get(`test`);
-    console.log("Redis Data", redisData)
+    // await redisClient.set("test", email); 
+    // const redisData = await redisClient.get(`test`);
+    // console.log("Redis Data", redisData)
     try {
 
         const user = await User.findOne({email: email})
