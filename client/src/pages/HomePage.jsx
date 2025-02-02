@@ -109,7 +109,7 @@ const HomePage = () => {
           >
             <SoFlex bg="unset" gap="20px" m="20px 0 0 0">
               <SoCard p="0">
-                <Link target="_blank" to="http://localhost:5174/">
+                <Link target="_blank" to="https://refine-web.netlify.app/">
                   <SoFlex p="15px 0 0 0" br="15px" dir="column">
                     <Fade>
                       <SoBox
@@ -151,7 +151,7 @@ const HomePage = () => {
                 </Link>
               </SoCard>
               <SoCard p="0">
-              <Link target="_blank" to="http://localhost:3000/">
+              <Link target="_blank" to="https://aerio-app.netlify.app/">
                 <SoFlex p="15px 0 0 0" br="15px" dir="column">
                   <Fade>
                     <SoBox
