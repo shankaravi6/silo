@@ -141,7 +141,9 @@ const HomePage = () => {
                               color={colorTokens.drops[100]}
                               fs="11px"
                             >
-                              We're dedicated to providing informative articles that inspire curiosity and spark discovery. Join us on our journey of knowledge-sharing!
+                              We're dedicated to providing informative articles
+                              that inspire curiosity and spark discovery. Join
+                              us on our journey of knowledge-sharing!
                             </SoTypography>
                           </SoFlex>
                         </SoCover>
@@ -151,88 +153,94 @@ const HomePage = () => {
                 </Link>
               </SoCard>
               <SoCard p="0">
-              <Link target="_blank" to="https://aerio-app.netlify.app/">
-                <SoFlex p="15px 0 0 0" br="15px" dir="column">
-                  <Fade>
-                    <SoBox
-                      sw="270px"
-                      sh="270px"
-                      mw="270px"
-                      w="320px"
-                      h="320px"
-                      className="relative"
-                    >
-                      <SoImg br="7.5px" src={ShoppingImg} />
-                      <SoCover
-                        br="7.5px"
-                        bg="linear-gradient(1deg, #1c0c04, transparent)"
-                        w="100%"
-                        className="absolute bottom-0"
-                        p="75px 25px 25px 25px"
+                <Link target="_blank" to="https://aerio-app.netlify.app/">
+                  <SoFlex p="15px 0 0 0" br="15px" dir="column">
+                    <Fade>
+                      <SoBox
+                        sw="270px"
+                        sh="270px"
+                        mw="270px"
+                        w="320px"
+                        h="320px"
+                        className="relative"
                       >
-                        <SoFlex bg="unset" gap="10px" dir="column">
-                          <SoSubTitle
-                            ls="5px"
-                            fs="clamp(0.5rem, 10vw, 1.25rem)"
-                            className="text-nowrap"
-                            color={colorTokens.drops[300]}
-                          >
-                            Aerio
-                          </SoSubTitle>
-                          <SoTypography
-                            color={colorTokens.drops[100]}
-                            fs="11px"
-                          >
-                            We bring history to life with a carefully curated selection of ancient artifacts, vintage collectibles, and timeless treasures. Explore our collection and own a piece of the past today!
-                          </SoTypography>
-                        </SoFlex>
-                      </SoCover>
-                    </SoBox>
-                  </Fade>
-                </SoFlex>
-              </Link>
+                        <SoImg br="7.5px" src={ShoppingImg} />
+                        <SoCover
+                          br="7.5px"
+                          bg="linear-gradient(1deg, #1c0c04, transparent)"
+                          w="100%"
+                          className="absolute bottom-0"
+                          p="75px 25px 25px 25px"
+                        >
+                          <SoFlex bg="unset" gap="10px" dir="column">
+                            <SoSubTitle
+                              ls="5px"
+                              fs="clamp(0.5rem, 10vw, 1.25rem)"
+                              className="text-nowrap"
+                              color={colorTokens.drops[300]}
+                            >
+                              Aerio
+                            </SoSubTitle>
+                            <SoTypography
+                              color={colorTokens.drops[100]}
+                              fs="11px"
+                            >
+                              We bring history to life with a curated selection
+                              of ancient artifacts, vintage, and timeless
+                              treasures. Explore our collection and own a piece
+                              of the past today!
+                            </SoTypography>
+                          </SoFlex>
+                        </SoCover>
+                      </SoBox>
+                    </Fade>
+                  </SoFlex>
+                </Link>
               </SoCard>
               <SoCard p="0">
-                <SoFlex p="15px 0 0 0" br="15px" dir="column">
-                  <Fade>
-                    <SoBox
-                      sw="270px"
-                      sh="270px"
-                      mw="270px"
-                      w="320px"
-                      h="320px"
-                      className="relative"
-                    >
-                      <SoImg br="7.5px" src={RoomImg} />
-                      <SoCover
-                        br="7.5px"
-                        bg="linear-gradient(1deg, #1c0c04, transparent)"
-                        w="100%"
-                        className="absolute bottom-0"
-                        p="75px 25px 25px 25px"
+                <Link target="_blank" to="https://dropie-app.netlify.app/">
+                  <SoFlex p="15px 0 0 0" br="15px" dir="column">
+                    <Fade>
+                      <SoBox
+                        sw="270px"
+                        sh="270px"
+                        mw="270px"
+                        w="320px"
+                        h="320px"
+                        className="relative"
                       >
-                        <SoFlex bg="unset" gap="10px" dir="column">
-                          <SoSubTitle
-                            ls="5px"
-                            fs="clamp(0.5rem, 10vw, 1.25rem)"
-                            className="text-nowrap"
-                            color={colorTokens.drops[300]}
-                          >
-                            COMING SOON
-                          </SoSubTitle>
-                          <SoTypography
-                            color={colorTokens.drops[100]}
-                            fs="11px"
-                          >
-                            Lorem ipsum dolor sit amet consectetur adipiscing
-                            elit, auctor hendrerit commodo bibendum consequat
-                            suscipit, netus et ante vel a luctus.
-                          </SoTypography>
-                        </SoFlex>
-                      </SoCover>
-                    </SoBox>
-                  </Fade>
-                </SoFlex>
+                        <SoImg br="7.5px" src={RoomImg} />
+                        <SoCover
+                          br="7.5px"
+                          bg="linear-gradient(1deg, #1c0c04, transparent)"
+                          w="100%"
+                          className="absolute bottom-0"
+                          p="75px 25px 25px 25px"
+                        >
+                          <SoFlex bg="unset" gap="10px" dir="column">
+                            <SoSubTitle
+                              ls="5px"
+                              fs="clamp(0.5rem, 10vw, 1.25rem)"
+                              className="text-nowrap"
+                              color={colorTokens.drops[300]}
+                            >
+                              Dropie
+                            </SoSubTitle>
+                            <SoTypography
+                              color={colorTokens.drops[100]}
+                              fs="11px"
+                            >
+                              Connect with people through short content and
+                              shared thoughts. A simple space to express ideas,
+                              exchange perspectives, and stay socially
+                              connected.
+                            </SoTypography>
+                          </SoFlex>
+                        </SoCover>
+                      </SoBox>
+                    </Fade>
+                  </SoFlex>
+                </Link>
               </SoCard>
             </SoFlex>
             <br />
